@@ -1,5 +1,7 @@
+<br>
 
-# Análise de variação mensal
+
+## Análise de variação mensal
 
 ```{r}
 
@@ -17,10 +19,14 @@ df.wide <- fortify(df.diff)
 df.melt <- melt(df.wide, id.vars = "Index")
 
 
-plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + geom_line()
+plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
+        geom_line() +
+        ggtitle("Variação a cada mês") +
+        labs(y="Crescimento %", x="") + 
+        theme(legend.position="bottom", legend.title = element_blank())
 
 
-plot
+# plot
 ggplotly(plot)
 
 ```

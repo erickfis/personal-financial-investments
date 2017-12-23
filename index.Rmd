@@ -1,11 +1,12 @@
 ---
 title: "Personal Financial Investments Analysis"
+subtitle: "https://github.com/erickfis"
 author: "erickfis@gmail.com"
 date: "`r format(Sys.time(), '%Y %B, %d')`"
 
 output:
   prettydoc::html_pretty:
-    theme: architect
+    theme: tactile
     highlight: github
     toc: true
     self_contained: no

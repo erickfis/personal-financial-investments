@@ -1,4 +1,6 @@
-# Evolução 
+<br>
+
+## Evolução 
 
 
 ```{r}
@@ -6,24 +8,6 @@ df <- df.brown
 
 df %<>% group_by(fundo) %>%  arrange(fundo, data)
 
-
-
-
-
-# ajustes brown
-# cdb 19-117
-
-
-
-# evolucao <- group_by(df, fundo) %>% arrange(fundo, data) %>% 
-#         mutate(invest.liq = cumsum(investimento) - cumsum(saque)) %>% 
-#         mutate(
-#                 crescimento = round(100*(
-#                 ((saldoF+cumsum(saque)-cumsum(investimento))/
-#                          cumsum(investimento))
-#                         ),
-#                 2)
-#                )
 
 evolucao <- mutate(df,
                 invest.liq = cumsum(investimento) - cumsum(saque),
@@ -52,7 +36,7 @@ df.xts <- na.locf(df.xts) # preenche os NAs com o último valor
 df.xts[is.na.data.frame(df.xts)] <- 0 # preenche NAs restantes com 0
 
 
-plot.xts(df.xts["2017-06/"], legend.loc = "bottomright", auto.legend=TRUE)
+# plot.xts(df.xts["2017-06/"], legend.loc = "bottomright", auto.legend=TRUE)
 
 
 
@@ -62,10 +46,14 @@ df.wide <- fortify(df.xts["2017-06/"])
 df.melt <- melt(df.wide, id.vars = "Index")
 
 
-plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + geom_line()
+plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
+        geom_line() + 
+        ggtitle("Evolução a cada mês") +
+        labs(y="Crestimento %", x="") + 
+        theme(legend.position="bottom", legend.title = element_blank())
 
 
-plot
+# plot
 ggplotly(plot)
 
 

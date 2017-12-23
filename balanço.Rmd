@@ -1,5 +1,7 @@
 
-# Balanço
+# Investimentos do Dr. Brown
+
+## Balanço
 
 ```{r balanço}
 
@@ -62,14 +64,17 @@ plot.data$fundo <- factor(
 saldo.atual <- plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
         geom_bar(stat = "identity") + 
         ggtitle("Saldo Atual de cada fundo") +
-        labs(y="", x="") + 
+        labs(y="Reais", x="") + 
         theme_economist() + scale_fill_economist() +
         theme(legend.position="none")
 
-saldo.atual
+# saldo.atual
 
-# ggplotly(saldo.atual)
+ggplotly(saldo.atual)
 ```
+
+
+<br>
 
 
 ```{r composition}
@@ -115,16 +120,17 @@ best <- plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=fundo,
                                  color=(rendimento.mes>0))) +
         geom_bar(stat = "identity") + 
         ggtitle("Rendimento ao mês") +
-        labs(y="", x="") + 
+        labs(y="Crescimento %", x="") + 
         theme_economist() + scale_fill_economist() +
         theme(legend.position="none")
 
 
-best
-# ggplotly(best)
+
+ggplotly(best)
 
 
 ```
+<br>
 
 
 ```{r waffle}

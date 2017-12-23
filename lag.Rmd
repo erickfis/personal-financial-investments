@@ -1,0 +1,60 @@
+
+# Análise de variação mensal
+
+```{r}
+
+
+df.diff <- diff.xts(df.xts)
+
+df.diff <- df.diff["2017-06/"]
+
+# plot.xts(df.diff, legend.loc = "bottomright", auto.legend=TRUE)
+
+
+# transformar de volta pra df, enviar para ggplot
+df.wide <- fortify(df.diff)
+
+df.melt <- melt(df.wide, id.vars = "Index")
+
+
+plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + geom_line()
+
+
+plot
+ggplotly(plot)
+
+```
+
+
+
+```{r}
+
+# df <- fortify(dados.diff["2017-07/"])
+# 
+# df.melt <- melt(df, id.vars = "Index")
+# 
+# 
+# 
+# 
+# t.dados <- tidy(dados.diff["2017-07/"])
+# 
+# 
+# plot2 <- ggplot(t.dados, aes(x=index,y=value, color=series,
+#                    # text = paste(index, "<br>",
+#                    #              "investimento: ", series, "<br>",
+#                    #              "crescimento: ", value)
+#                    # ))
+#                    # text = paste(as.Date(index), "<br>", value, "<br>", series)))
+#               text = as.Date(index))) + geom_line()
+
+
+# plot2 <- ggplot(t.dados, aes(x=index,y=value, color=series)) +
+#                             geom_line()
+
+
+# plot2 <- plot2 + geom_line()
+
+# ggplotly(plot2, tooltip = "text")
+
+```
+

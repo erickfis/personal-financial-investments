@@ -1,0 +1,83 @@
+# Evolução 
+
+
+```{r}
+df <- df.brown
+
+df %<>% group_by(fundo) %>%  arrange(fundo, data)
+
+
+
+
+
+# ajustes brown
+# cdb 19-117
+
+
+
+# evolucao <- group_by(df, fundo) %>% arrange(fundo, data) %>% 
+#         mutate(invest.liq = cumsum(investimento) - cumsum(saque)) %>% 
+#         mutate(
+#                 crescimento = round(100*(
+#                 ((saldoF+cumsum(saque)-cumsum(investimento))/
+#                          cumsum(investimento))
+#                         ),
+#                 2)
+#                )
+
+evolucao <- mutate(df,
+                invest.liq = cumsum(investimento) - cumsum(saque),
+                crescimento = round(
+                        100*(saldoF-invest.liq)/cumsum(investimento),
+                        2),
+                meses = as.numeric(data - min(data))/(24*3600*30),
+                cresc.pond = abs(crescimento)^(1/meses)*
+                        ifelse(crescimento<0,-1,1)
+                )
+                
+
+
+
+# preparando para xts
+# dcast para colocar cada fundo em um vetor
+
+data.wide <- dcast(evolucao[,c(2,3,11)], 
+                   data ~ fundo, value.var = "cresc.pond")
+
+# transformar em xts agora senão na.locf tranforma tudo em char
+df.xts <- xts(data.wide[, c(2:ncol(data.wide))], order.by = data.wide$data)
+
+
+df.xts <- na.locf(df.xts) # preenche os NAs com o último valor
+df.xts[is.na.data.frame(df.xts)] <- 0 # preenche NAs restantes com 0
+
+
+plot.xts(df.xts["2017-06/"], legend.loc = "bottomright", auto.legend=TRUE)
+
+
+
+# transformar de volta pra df, enviar para ggplot
+df.wide <- fortify(df.xts["2017-06/"])
+
+df.melt <- melt(df.wide, id.vars = "Index")
+
+
+plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + geom_line()
+
+
+plot
+ggplotly(plot)
+
+
+
+
+    
+
+
+
+
+
+
+
+```
+

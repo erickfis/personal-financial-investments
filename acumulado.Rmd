@@ -1,0 +1,116 @@
+
+```{r libs}
+
+library(knitr)
+library(rmarkdown)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(readxl)
+library(reshape2)
+library(plotly)
+library(kableExtra)
+library(xts)
+library(broom)
+```
+
+```{r load}
+
+
+dados <- read_xls("~/Documents/Google Drive/office/orçamento2017.xls", 
+                  sheet = "inv")
+
+dados <- dados[,c(1:7)]
+
+dados$nome[dados$nome=="erick"] <- "bob"
+dados$nome[dados$nome=="michelle"] <- "brown"
+
+dados$saldoF[is.na(dados$saldoF)] <- dados$saldoI[is.na(dados$saldoF)]
+dados[is.na.data.frame(dados)] <- 0
+
+
+duplicadas <- group_by(dados, nome, fundo, data) %>%
+        summarise(
+                counta.data = n()
+        ) %>% filter(counta.data >1)
+
+
+arr.duplicadas <- tapply(duplicadas$data, duplicadas$fundo, unique)
+
+
+
+df.filtrada <- dados
+
+for(x in 1:length(arr.duplicadas)){
+        condicao <- with(df.filtrada,
+                         nome = "bob",
+                         fundo == names(arr.duplicadas[x]) & 
+                         data %in% arr.duplicadas[[x]] &
+                         saque==0 & investimento==0)
+        df.filtrada <- df.filtrada[!condicao,]
+
+       }
+
+
+df.brown <- subset(df.filtrada, nome=="brown")
+df.bob <- subset(df.filtrada, nome=="bob")
+
+# unique(dados$dono)
+```
+
+# Totais
+
+```{r totais}
+
+df <- df.brown
+
+df.fechamento.cada <-  group_by(df, fundo) %>%
+        summarise(
+                invest.acc = sum(investimento),
+                saque.acc = sum(saque),
+                invest.liq = sum(investimento) - sum(saque),
+                saldo.total = saldoF[data==max(data)],
+                rendimento = saldo.total - invest.acc + saque.acc,
+                rendimento.perc = round(rendimento/invest.acc,4),
+                meses = round(as.numeric(max(data) - min(data))/30,2),
+                rendimento.mes = round(rendimento.perc/meses,3)
+        )  %>% 
+        rbind(list("total",
+                   sum(.$invest.acc),
+                   sum(.$saque.acc),
+                   sum(.$invest.liq),
+                   sum(.$saldo.total),
+                   sum(.$rendimento),
+                   (sum(.$saldo.total)-sum(.$invest.liq))/sum(.$invest.liq),
+                   max(.$meses),
+                   ((sum(.$saldo.total)
+                     -sum(.$invest.liq))/sum(.$invest.liq))/max(.$meses)
+                )
+        ) 
+
+
+df.fechamento.cada  %>% 
+        kable(format = "html", caption = "Acumulado de cada aplicação") %>%
+        # kable_styling(bootstrap_options = c("hover", "responsive"))
+        kable_styling("hover", full_width = F)
+         
+        # row_spec(12, bold = T, italic = T)
+
+
+# df.brown.fechamento <- summarize(df.brown.fechamento.cada,
+#                                  investido = sum(invest.acc - saque.acc),
+#                                  rendimento = sum(rendimento),
+#                                  rendimento.perc = round(rendimento/investido, 3),
+#                                  total = investido + rendimento
+# )
+# 
+# 
+# df.brown.fechamento %>%
+# # totais.show %>%
+#         kable("html", caption = "Acumulado total") %>%
+#         kable_styling(bootstrap_options = c("striped", "hover"))
+# 
+
+```
+
+

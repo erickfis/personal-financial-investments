@@ -1,0 +1,209 @@
+
+# Balanço
+
+```{r balanço}
+
+df <- df.brown
+
+plot.data <-  group_by(df, fundo) %>%
+        summarise(
+                invest.acc = sum(investimento),
+                saque.acc = sum(saque),
+                invest.liq = sum(investimento) - sum(saque),
+                saldo.total = saldoF[data==max(data)],
+                # rendimento = saldo.total - invest.liq,
+                rendimento = saldo.total + saque.acc - invest.acc,
+
+                rendimento.perc = round(100*rendimento/invest.acc,2),
+                # rendimento.perc = round(100*rendimento/invest.liq,2),
+
+                invest.liq.perc = ifelse(rendimento<0,100, 
+                                         100-rendimento.perc),
+                meses = round(as.numeric(max(data) - min(data))/30,2),
+                # rendimento.mes = round(rendimento.perc/meses,3)
+                rendimento.mes = (round(abs(rendimento.perc)^(1/meses),3)*
+                                          ifelse(rendimento.perc < 0,
+                                                 -1,1))
+
+        )  %>% filter(saldo.total > 0) %>% 
+        arrange(desc(rendimento.mes))
+
+
+# add margin with totals, for tables
+totals <- plot.data %>%    
+        rbind(list("total",
+                   sum(.$invest.acc),
+                   sum(.$saque.acc),
+                   sum(.$invest.liq),
+                   sum(.$saldo.total),
+                   sum(.$rendimento),
+                   100*(sum(.$saldo.total)-sum(.$invest.liq))/sum(.$invest.liq),
+                   100,
+                   max(.$meses),
+                   "---"
+                )
+        ) 
+
+
+```
+
+```{r current}
+
+# order factors for cash in each title
+plot.data$fundo <- factor(
+        plot.data$fundo,
+        levels = plot.data$fundo[order(
+                plot.data$invest.liq, decreasing = FALSE)
+                ]
+        )
+
+
+# plot - current status
+saldo.atual <- plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
+        geom_bar(stat = "identity") + 
+        ggtitle("Saldo Atual de cada fundo") +
+        labs(y="", x="") + 
+        theme_economist() + scale_fill_economist() +
+        theme(legend.position="none")
+
+saldo.atual
+
+# ggplotly(saldo.atual)
+```
+
+
+```{r composition}
+# Composição de cada fundo, invest vs rendimento
+
+
+plot.data %>% filter(rendimento>0) %>% select(c(1,7,8)) %>%
+        # long format, for ggplot
+        melt(id.vars = "fundo") %>%
+        # text position
+        mutate(pos = ifelse(value>50, value - (0.5 * value), 
+                            100-value + value/2)) %>% 
+        ggplot(aes(fundo, value, fill=variable)) +
+        geom_bar(stat = "identity") +
+        geom_text(aes(x = fundo, y = pos, label = paste0(value,"%")),
+                       size=4) +
+        scale_y_continuous(labels = dollar_format(suffix = "%", prefix = "")) +
+        ggtitle("Composição de cada fundo (%)") +
+        labs(y="", x="") + 
+        theme_economist() + scale_fill_economist() +
+        theme(legend.position="bottom", legend.direction="horizontal",
+                   legend.title = element_blank())
+
+
+```
+
+```{r best}
+# Maiores rendimentos
+
+# order factors for best titles
+plot.data$fundo <- factor(
+        plot.data$fundo,
+        levels = plot.data$fundo[order(
+                plot.data$rendimento.mes, decreasing = FALSE)
+                ]
+        )
+plot.data %<>% arrange(desc(rendimento.mes))
+
+
+
+# plot - current status
+best <- plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=fundo, 
+                                 color=(rendimento.mes>0))) +
+        geom_bar(stat = "identity") + 
+        ggtitle("Rendimento ao mês") +
+        labs(y="", x="") + 
+        theme_economist() + scale_fill_economist() +
+        theme(legend.position="none")
+
+
+best
+# ggplotly(best)
+
+
+```
+
+
+```{r waffle}
+
+# Composição da carteira
+
+
+cash <- plot.data$invest.liq
+cash.names <- sprintf("%s (%s)",
+                     plot.data$fundo,
+                     percent(round(cash/sum(cash), 2)))
+
+names(cash) <- cash.names
+cash <- cash[order(cash,decreasing = TRUE)]
+
+
+# waffle plot
+waffle(cash/200, size = 1) + 
+        theme(legend.position="bottom", legend.direction="horizontal",
+                   legend.title = element_blank()) +
+        ggtitle("Composição da carteira")
+
+
+
+```
+
+
+```{r donuts}
+
+
+donut <- plot.data %>% transmute(fundo = fundo,
+                        perc=(100*invest.liq/sum(invest.liq))) %>% 
+        arrange(desc(perc)) %>% 
+        # add max and min for bars plot data 
+        mutate(ymax=cumsum(perc))
+
+donut$ymin <- c(0, head(donut$ymax, -1))
+                
+                        
+                        
+                        
+donut %>%
+        ggplot(aes(fill = fundo, ymax = ymax, ymin = ymin, 
+                   xmax = 100, xmin = 80)) +
+        geom_rect(colour = "black") +
+        
+        coord_polar(theta = "y") + # or else we have pizza
+        xlim(c(0, 100)) +
+        # auto adjust label distances
+        geom_label_repel(aes(label = paste(round(perc,2),"%"), 
+                             x = 100, y = (ymin + ymax)/2),inherit.aes = F,
+                         show.legend = F, size = 5) +
+        theme(legend.title = element_blank(),
+                legend.text = element_text(colour = "black", size = 15),
+                panel.grid = element_blank(),
+                axis.text = element_blank(),
+                axis.title = element_blank(),
+                axis.ticks = element_blank()) +
+        annotate("text", x = 0, y = 0, size = 15, label = "Carteira")
+        
+
+
+
+
+
+
+```
+
+
+
+```{r}
+
+#tabela de dados
+
+totals[,c(1,4,5,7,9,10)]  %>% 
+        kable(format = "html", caption = "Acumulado de cada aplicação") %>%
+        # kable_styling(bootstrap_options = c("hover", "responsive"))
+        kable_styling("hover", full_width = F)
+         
+        # row_spec(12, bold = T, italic = T)
+```
+

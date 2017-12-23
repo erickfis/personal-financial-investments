@@ -1,0 +1,43 @@
+---
+title: "Personal Financial Investments Analysis"
+author: "erickfis@gmail.com"
+date: "`r format(Sys.time(), '%Y %B, %d')`"
+
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+    toc: true
+    self_contained: no
+
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+options(knitr.table.format = "html") 
+
+
+```
+
+```{r}
+source("load.R")
+```
+
+
+```{r child="balanço.Rmd"}
+```
+
+
+```{r child="evolucao.Rmd"}
+```
+
+
+```{r child="lag.Rmd"}
+```
+
+<!-- ```{r child="minmax.Rmd"} -->
+<!-- ``` -->
+
+
+

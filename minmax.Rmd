@@ -1,0 +1,50 @@
+
+
+# Análise de desempenho por mês
+
+
+```{r}
+
+group_by(rendimentos, nome) %>%
+        summarize(data.inicial = min(data), data.final=max(data),
+                  valor.final = crescimento[data == max(data)],
+                  meses = as.numeric(data.final-data.inicial)/30,
+                  crescimento.ao.mes = valor.final/meses
+        ) %>% filter(crescimento.ao.mes > 0) %>% 
+        arrange(desc(crescimento.ao.mes)) %>%
+        mutate(nome = factor(nome,
+                             levels = nome[order(crescimento.ao.mes)])) %>%
+        ggplot(aes(nome, crescimento.ao.mes, color=nome)) +
+        geom_point()
+
+
+        
+```
+
+
+```{r}
+
+# ###wa500
+# w500 <- subset(rendimentos, nome == "WA500")
+# w500$indice <- 1:nrow(w500)
+# 
+# fitW500 <- lm(rendimento ~ indice -1, w500)
+# 
+# ### cdb
+# indice <- grep("^CDB", rendimentos$nome)
+# cdb <- rendimentos[indice,]
+# cdb$indice <- 1:nrow(cdb)
+# 
+# fitCDB <- lm(rendimento ~ indice -1, cdb)
+# summary(fit)
+# 
+# ### lci
+# indice <- grep("^LCI", rendimentos$nome)
+# lci <- rendimentos[indice,]
+# lci$indice <- 1:nrow(lci)
+# 
+# fitLCI <- lm(rendimento ~ indice -1, lci)
+
+
+
+```

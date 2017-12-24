@@ -4,7 +4,6 @@
 
 
 ```{r}
-df <- df.brown
 
 df %<>% group_by(fundo) %>%  arrange(fundo, data)
 
@@ -15,8 +14,8 @@ evolucao <- mutate(df,
                         100*(saldoF-invest.liq)/cumsum(investimento),
                         2),
                 meses = as.numeric(data - min(data))/(24*3600*30),
-                cresc.pond = abs(crescimento)^(1/meses)*
-                        ifelse(crescimento<0,-1,1)
+                cresc.pond = as.numeric(abs(crescimento)^(1/meses)*
+                        ifelse(crescimento<0,-1,1))
                 )
                 
 
@@ -27,6 +26,30 @@ evolucao <- mutate(df,
 
 data.wide <- dcast(evolucao[,c(2,3,11)], 
                    data ~ fundo, value.var = "cresc.pond")
+
+
+
+
+#########################
+
+# library(tidyr)
+# stocks <- data.frame(
+#   time = as.Date('2009-01-01') + 0:9,
+#   X = rnorm(10, 0, 1),
+#   Y = rnorm(10, 0, 2),
+#   Z = rnorm(10, 0, 4)
+# )
+# stocksm <- stocks %>% gather(stock, price, -time)
+# 
+# 
+# stocksm %>% spread(stock, price)
+
+
+
+######################
+# data.wide <- spread(evolucao[,c(2,3,11)], fundo, cresc.pond)
+
+
 
 # transformar em xts agora senão na.locf tranforma tudo em char
 df.xts <- xts(data.wide[, c(2:ncol(data.wide))], order.by = data.wide$data)
@@ -41,7 +64,9 @@ df.xts[is.na.data.frame(df.xts)] <- 0 # preenche NAs restantes com 0
 
 
 # transformar de volta pra df, enviar para ggplot
-df.wide <- fortify(df.xts["2017-06/"])
+# df.wide <- fortify(df.xts["2017-06/"])
+df.wide <- fortify(df.xts)
+
 
 df.melt <- melt(df.wide, id.vars = "Index")
 

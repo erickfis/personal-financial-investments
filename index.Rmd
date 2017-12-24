@@ -25,6 +25,13 @@ options(knitr.table.format = "html")
 source("load.R")
 ```
 
+# Investimentos do Dr. Brown
+
+```{r}
+df <- df.brown
+```
+
+
 
 ```{r child="balanço.Rmd"}
 ```
@@ -37,8 +44,22 @@ source("load.R")
 ```{r child="lag.Rmd"}
 ```
 
-<!-- ```{r child="minmax.Rmd"} -->
-<!-- ``` -->
+
+# Investimentos do Mestre Kame
+
+```{r}
+df <- df.bob
+```
 
 
+```{r child="balanço.Rmd"}
+```
+
+
+```{r child="evolucao.Rmd"}
+```
+
+
+```{r child="lag.Rmd"}
+```
 

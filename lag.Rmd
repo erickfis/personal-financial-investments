@@ -8,7 +8,7 @@
 
 df.diff <- diff.xts(df.xts)
 
-# df.diff <- df.diff["2017-06/"]
+df.diff <- df.diff["2017-06/"]
 
 # plot.xts(df.diff, legend.loc = "bottomright", auto.legend=TRUE)
 
@@ -23,11 +23,13 @@ plot <-  ggplot(df.melt, aes(Index, value, color=variable)) +
         geom_line() +
         ggtitle("Variação a cada mês") +
         labs(y="Crescimento %", x="") + 
-        theme(legend.position="bottom", legend.title = element_blank())
+        theme_economist() + scale_fill_economist()
+        # theme(legend.position="bottom", legend.direction="horizontal",
+                   # legend.title = element_blank()) 
 
-
-# plot
 ggplotly(plot)
+
+
 
 ```
 

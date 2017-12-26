@@ -49,6 +49,30 @@ totals <- plot.data %>%
 
 ```{r}
 
+
+# tema padrão, max ink-ratio
+
+
+tema <- theme(legend.position="none",
+              axis.title.x = element_blank(),
+              axis.ticks.y = element_blank(),
+              axis.line.y = element_blank(),
+              axis.title.y = element_blank(),
+              axis.text.y = element_blank(),
+              panel.grid = element_blank(),
+              panel.border = element_blank(),
+              # panel.background = element_rect(colour = "#d5e4eb", 
+              #                                 fill = "#d5e4eb"),
+              # back
+              # plot.background = element_rect(colour = "#d5e4eb", 
+              #                                 fill = "#d5e4eb"),
+              # panel.background = element_rect(colour = "white", fill = "white"),
+        legend.background = element_blank()
+                
+)
+
+
+
 # order factors for cash in each title
 plot.data$fundo <- factor(
         plot.data$fundo,
@@ -58,17 +82,19 @@ plot.data$fundo <- factor(
         )
 
 
-# plot - current status
-saldo.atual <- plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
+# # plot - current status
+plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
         geom_bar(stat = "identity") + 
-        ggtitle("Saldo Atual de cada fundo") +
-        labs(y="Reais", x="") + 
+        geom_text(aes(
+                y=ifelse(saldo.total<5000, saldo.total+2000, saldo.total-3000),
+                label=saldo.total), size=4
+                ) +        
+        ggtitle("Saldo Atual de cada fundo (R$)") +
         theme_economist() + scale_fill_economist() +
-        theme(legend.position="none")
+        tema        
+     
 
-# saldo.atual
 
-ggplotly(saldo.atual)
 ```
 
 
@@ -79,22 +105,28 @@ ggplotly(saldo.atual)
 # Composição de cada fundo, invest vs rendimento
 
 
-plot.data %>% filter(rendimento>0) %>% select(c(1,7,8)) %>%
+
+
+compos <- plot.data %>% filter(rendimento>0) %>% select(c(1,7,8)) %>%
         # long format, for ggplot
         melt(id.vars = "fundo") %>%
         # text position
         mutate(pos = ifelse(value>50, value - (0.5 * value), 
-                            100-value + value/2)) %>% 
-        ggplot(aes(fundo, value, fill=variable)) +
+                            100-value + value/2))
+
+
+compos$variable <- factor(compos$variable, labels = c("rendimento", "aplicado"))
+
+compos %>% ggplot(aes(fundo, value, fill=variable)) +
         geom_bar(stat = "identity") +
         geom_text(aes(x = fundo, y = pos, label = paste0(value,"%")),
                        size=4) +
-        scale_y_continuous(labels = dollar_format(suffix = "%", prefix = "")) +
         ggtitle("Composição de cada fundo (%)") +
-        labs(y="", x="") + 
         theme_economist() + scale_fill_economist() +
+        tema +
         theme(legend.position="bottom", legend.direction="horizontal",
                    legend.title = element_blank())
+
 
 
 ```
@@ -114,17 +146,16 @@ plot.data %<>% arrange(desc(rendimento.mes))
 
 
 # plot - current status
-best <- plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=fundo, 
-                                 color=(rendimento.mes>0))) +
+plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=(rendimento.mes<0))) +
         geom_bar(stat = "identity") + 
         ggtitle("Rendimento ao mês") +
-        labs(y="Crescimento %", x="") + 
+        geom_text(aes(
+                y=rendimento.mes*.85,
+                label=rendimento.mes), size=4, color="black"
+                ) +
+   
         theme_economist() + scale_fill_economist() +
-        theme(legend.position="none")
-
-
-
-ggplotly(best)
+        tema 
 
 
 ```
@@ -147,6 +178,9 @@ cash <- cash[order(cash,decreasing = TRUE)]
 
 # waffle plot
 waffle(cash/200, size = 1) + 
+        # theme_economist() + 
+        scale_fill_economist() +
+        tema +
         theme(legend.position="bottom", legend.direction="horizontal",
                    legend.title = element_blank()) +
         ggtitle("Composição da carteira")
@@ -170,25 +204,30 @@ donut$ymin <- c(0, head(donut$ymax, -1))
                         
                         
                         
-donut %>%
-        ggplot(aes(fill = fundo, ymax = ymax, ymin = ymin, 
-                   xmax = 100, xmin = 80)) +
-        geom_rect(colour = "black") +
-        
-        coord_polar(theta = "y") + # or else we have pizza
-        xlim(c(0, 100)) +
-        # auto adjust label distances
-        geom_label_repel(aes(label = paste(round(perc,2),"%"), 
-                             x = 100, y = (ymin + ymax)/2),inherit.aes = F,
-                         show.legend = F, size = 5) +
-        theme(legend.title = element_blank(),
-                legend.text = element_text(colour = "black", size = 15),
-                panel.grid = element_blank(),
-                axis.text = element_blank(),
-                axis.title = element_blank(),
-                axis.ticks = element_blank()) +
-        annotate("text", x = 0, y = 0, size = 15, label = "Carteira")
-        
+# donut %>%
+#         ggplot(aes(fill = fundo, ymax = ymax, ymin = ymin, 
+#                    xmax = 100, xmin = 80)) +
+#         geom_rect(colour = "black") +
+#         
+#         coord_polar(theta = "y") + # or else we have pizza
+#         xlim(c(0, 100)) +
+#         # auto adjust label distances
+#         geom_label_repel(aes(label = paste(round(perc,2),"%"), 
+#                              x = 100, y = (ymin + ymax)/2),inherit.aes = F,
+#                          show.legend = F, size = 5) +
+#         # theme(legend.title = element_blank(),
+#         #         legend.text = element_text(colour = "black", size = 15),
+#         #         panel.grid = element_blank(),
+#         #         axis.text = element_blank(),
+#         #         axis.title = element_blank(),
+#         #         axis.ticks = element_blank()) +
+#         annotate("text", x = 0, y = 0, size = 15, label = "Carteira") +
+#         theme_economist() + scale_fill_economist() +
+#         tema +
+#         theme(legend.position="bottom", legend.direction="horizontal",
+#                    legend.title = element_blank()) +
+#         ggtitle("Composição da carteira")
+#         
 
 
 

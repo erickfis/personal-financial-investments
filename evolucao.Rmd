@@ -64,8 +64,8 @@ df.xts[is.na.data.frame(df.xts)] <- 0 # preenche NAs restantes com 0
 
 
 # transformar de volta pra df, enviar para ggplot
-# df.wide <- fortify(df.xts["2017-06/"])
-df.wide <- fortify(df.xts)
+df.wide <- fortify(df.xts["2017-06/"])
+# df.wide <- fortify(df.xts)
 
 
 df.melt <- melt(df.wide, id.vars = "Index")
@@ -73,12 +73,12 @@ df.melt <- melt(df.wide, id.vars = "Index")
 
 plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
         geom_line() + 
-        ggtitle("Evolução a cada mês") +
+        ggtitle("Evolução (%) a cada mês") +
         labs(y="Crestimento %", x="") + 
-        theme(legend.position="bottom", legend.title = element_blank())
+        theme_economist() + scale_fill_economist()
+        # theme(legend.position="bottom", legend.direction="horizontal",
+        #            legend.title = element_blank()) 
 
-
-# plot
 ggplotly(plot)
 
 

@@ -44,6 +44,8 @@ df <- df.brown
 ```{r child="lag.Rmd"}
 ```
 
+<br>
+<br>
 
 # Investimentos do Mestre Kame
 

@@ -2,9 +2,83 @@
 
 ## Evolução 
 
+```{r}
+# evolução mensal da carteira
+
+##### Saldo final
+
+saldo.final <- df[,c(2,3,7)]
+
+# spread para ter as mesmas datas em todos os fundos
+saldo.final <- dcast(saldo.final, data ~ fundo) 
+
+# transforma em xts para usar locf
+# preenche os NAs com o último valor
+saldo.final <- xts(saldo.final[,-1], order.by = saldo.final$data) %>% na.locf()
+
+# preenche NAs restantes com 0
+saldo.final[is.na.data.frame(saldo.final)] <- 0 
+
+# melt de volta, para então agrupar por data e ter 
+# um sumarize do saldo por dia
+saldo.final %<>% fortify() %>% melt(id.vars = "Index") %>% 
+        group_by(Index) %>% 
+        summarize(valor = sum(value))
+
+saldo.final <- xts(saldo.final[,-1], order.by = saldo.final$Index)    
+###### dinheiro investido
+
+
+cria.serie <- function(df) {
+        
+        serie <- dcast(df, data ~ fundo)
+
+        # preenche NAs restantes com 0
+        serie[is.na.data.frame(serie)] <- 0 
+        
+        serie[,-1] <- apply(serie[,-1], 2, function(x) cumsum(x))
+        
+        # melt de volta, para então agrupar por data e ter 
+        # um sumarize do saldo por dia
+        serie %<>% melt(id.vars = "data") %>% 
+                group_by(data) %>% 
+                summarize(valor = sum(value))
+        
+        serie <- xts(serie[,-1], order.by = serie$data)
+        serie
+}
+
+investimento <- cria.serie(df[,c(2,3,5)])
+saque <- cria.serie(df[,c(2,3,6)])
+
+# investimento <- saldo.final - (saldo.final + saque - investimento)
+investimento <- investimento - saque
+
+
+carteira <- merge.xts(saldo.final, investimento)
+names(carteira) <- c("Total", "Investimento")
+
+plot <- carteira %>% fortify() %>% melt(id.vars="Index")%>% 
+        ggplot(aes(Index, value, color=variable)) +
+        geom_line() + 
+        ggtitle("Evolução da carteira (R$)") +
+        labs(y="", x="") + 
+        theme_economist() + scale_fill_economist()
+        # theme(legend.position="bottom", legend.direction="horizontal",
+        #            legend.title = element_blank()) 
+
+ggplotly(plot)
+
+```
+
+
+<br>
+<br>
+
+
 
 ```{r}
-
+# evolução mensal de rendimentos
 df %<>% group_by(fundo) %>%  arrange(fundo, data)
 
 
@@ -30,27 +104,6 @@ data.wide <- dcast(evolucao[,c(2,3,11)],
 
 
 
-#########################
-
-# library(tidyr)
-# stocks <- data.frame(
-#   time = as.Date('2009-01-01') + 0:9,
-#   X = rnorm(10, 0, 1),
-#   Y = rnorm(10, 0, 2),
-#   Z = rnorm(10, 0, 4)
-# )
-# stocksm <- stocks %>% gather(stock, price, -time)
-# 
-# 
-# stocksm %>% spread(stock, price)
-
-
-
-######################
-# data.wide <- spread(evolucao[,c(2,3,11)], fundo, cresc.pond)
-
-
-
 # transformar em xts agora senão na.locf tranforma tudo em char
 df.xts <- xts(data.wide[, c(2:ncol(data.wide))], order.by = data.wide$data)
 
@@ -73,7 +126,7 @@ df.melt <- melt(df.wide, id.vars = "Index")
 
 plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
         geom_line() + 
-        ggtitle("Evolução (%) a cada mês") +
+        ggtitle("Evolução dos rendimentos (%)") +
         labs(y="Crestimento %", x="") + 
         theme_economist() + scale_fill_economist()
         # theme(legend.position="bottom", legend.direction="horizontal",
@@ -93,4 +146,5 @@ ggplotly(plot)
 
 
 ```
+<br>
 

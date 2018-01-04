@@ -2,7 +2,7 @@ library(knitr)
 library(rmarkdown)
 library(dplyr)
 library(scales)
-library(lubridate)
+# library(lubridate)
 library(ggplot2)
 library(ggthemes)
 library(readxl)
@@ -14,13 +14,18 @@ library(broom)
 library(waffle)
 library(ggrepel)
 library(magrittr)
+library(here)
 
 
 
 
 
-dados <- read_xls("~/Documents/Google Drive/office/orçamento2017.xls", 
-                  sheet = "inv")
+# dados <- read_xls("~/Documents/Google Drive/office/orçamento2017.xls", 
+#                   sheet = "inv")
+
+
+dados <- read_xls(here("data", "investimentos.xls"), sheet = "inv")
+
 
 dados <- dados[,c(1:6)]
 

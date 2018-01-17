@@ -193,13 +193,13 @@ waffle(cash/200, size = 1) +
 ```{r}
 
 
-donut <- plot.data %>% transmute(fundo = fundo,
-                        perc=(100*invest.liq/sum(invest.liq))) %>% 
-        arrange(desc(perc)) %>% 
-        # add max and min for bars plot data 
-        mutate(ymax=cumsum(perc))
-
-donut$ymin <- c(0, head(donut$ymax, -1))
+# donut <- plot.data %>% transmute(fundo = fundo,
+#                         perc=(100*invest.liq/sum(invest.liq))) %>% 
+#         arrange(desc(perc)) %>% 
+#         # add max and min for bars plot data 
+#         mutate(ymax=cumsum(perc))
+# 
+# donut$ymin <- c(0, head(donut$ymax, -1))
                 
                         
                         

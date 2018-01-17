@@ -16,24 +16,39 @@ df.diff <- df.diff["2017-06/"]
 # transformar de volta pra df, enviar para ggplot
 df.wide <- fortify(df.diff)
 
-df.melt <- melt(df.wide, id.vars = "Index")
+df.diff <- melt(df.wide, id.vars = "Index") %>% 
+        mutate(Index = as.Date(Index),
+               value = round(value,3)
+               ) 
 
 
-plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
-        geom_line() +
-        ggtitle("Variação a cada mês") +
-        labs(y="Crescimento %", x="") + 
-        theme_economist() + scale_fill_economist()
-        # theme(legend.position="bottom", legend.direction="horizontal",
-                   # legend.title = element_blank()) 
-
-ggplotly(plot)
-
-
+# plot <-  ggplot(df.melt, aes(Index, value, color=variable)) + 
+#         geom_line() +
+#         ggtitle("Variação a cada mês") +
+#         labs(y="Crescimento %", x="") + 
+#         theme_economist() + scale_fill_economist()
+#         # theme(legend.position="bottom", legend.direction="horizontal",
+#                    # legend.title = element_blank()) 
+# 
+# ggplotly(plot, 800, 400)
 
 ```
 
 
+```{r results="asis"}
+# nvd3 plot for evolution of each asset
+df.diff.plot <- nPlot(value ~ Index, group = 'variable', 
+                     data = df.diff, type = 'lineWithFocusChart')
+
+df.diff.plot$xAxis( tickFormat="#!function(d) { 
+                    if (typeof d === 'string') {
+                        d = parseFloat(d);
+                    }
+                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+                }
+        !#" )
+df.diff.plot$print(include_assets=T)
+```
 
 
 

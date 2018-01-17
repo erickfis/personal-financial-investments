@@ -15,7 +15,8 @@ library(waffle)
 library(ggrepel)
 library(magrittr)
 library(here)
-
+library(rCharts)
+library(RColorBrewer)
 
 
 

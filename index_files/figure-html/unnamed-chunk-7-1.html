@@ -1,0 +1,5836 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'>
+    
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='//d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'></script>
+    <script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart598947d601a2' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart598947d601a2()
+    });
+    function drawchart598947d601a2(){  
+      var opts = {
+ "dom": "chart598947d601a2",
+"width":    800,
+"height":    400,
+"x": "date",
+"y": "value",
+"group": "variable",
+"type": "lineWithFocusChart",
+"id": "chart598947d601a2" 
+},
+        data = [
+ {
+ "date": -915,
+"variable": "uempmed",
+"value":            4.5 
+},
+{
+ "date": -884,
+"variable": "uempmed",
+"value":            4.7 
+},
+{
+ "date": -853,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": -823,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": -792,
+"variable": "uempmed",
+"value":            4.7 
+},
+{
+ "date": -762,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": -731,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": -700,
+"variable": "uempmed",
+"value":            4.5 
+},
+{
+ "date": -671,
+"variable": "uempmed",
+"value":            4.1 
+},
+{
+ "date": -640,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": -610,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -579,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -549,
+"variable": "uempmed",
+"value":            4.5 
+},
+{
+ "date": -518,
+"variable": "uempmed",
+"value":            4.2 
+},
+{
+ "date": -487,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": -457,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": -426,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -396,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -365,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -334,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": -306,
+"variable": "uempmed",
+"value":              4 
+},
+{
+ "date": -275,
+"variable": "uempmed",
+"value":              4 
+},
+{
+ "date": -245,
+"variable": "uempmed",
+"value":            4.2 
+},
+{
+ "date": -214,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -184,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -153,
+"variable": "uempmed",
+"value":            4.4 
+},
+{
+ "date": -122,
+"variable": "uempmed",
+"value":            4.7 
+},
+{
+ "date": -92,
+"variable": "uempmed",
+"value":            4.5 
+},
+{
+ "date": -61,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": -31,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": 0,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": 31,
+"variable": "uempmed",
+"value":            4.5 
+},
+{
+ "date": 59,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": 90,
+"variable": "uempmed",
+"value":            4.1 
+},
+{
+ "date": 120,
+"variable": "uempmed",
+"value":            4.7 
+},
+{
+ "date": 151,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 181,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": 212,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 243,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 273,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 304,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 334,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 365,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 396,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 424,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 455,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 485,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 516,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 546,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 577,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 608,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 638,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 669,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 699,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 730,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 761,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 790,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 821,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 851,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 882,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 912,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 943,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 974,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 1004,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 1035,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 1065,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 1096,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 1127,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 1155,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 1186,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 1216,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 1247,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 1277,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 1308,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 1339,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 1369,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 1400,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": 1430,
+"variable": "uempmed",
+"value":            4.7 
+},
+{
+ "date": 1461,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 1492,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": 1520,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": 1551,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 1581,
+"variable": "uempmed",
+"value":            4.6 
+},
+{
+ "date": 1612,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 1642,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 1673,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 1704,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 1734,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 1765,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 1795,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 1826,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 1857,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 1885,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 1916,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 1946,
+"variable": "uempmed",
+"value":            9.4 
+},
+{
+ "date": 1977,
+"variable": "uempmed",
+"value":            8.8 
+},
+{
+ "date": 2007,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 2038,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 2069,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 2099,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 2130,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 2160,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 2191,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 2222,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 2251,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 2282,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 2312,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 2343,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 2373,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 2404,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 2435,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 2465,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 2496,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 2526,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 2557,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 2588,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 2616,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 2647,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 2677,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 2708,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 2738,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 2769,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 2800,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 2830,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 2861,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 2891,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 2922,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 2953,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 2981,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 3012,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 3042,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 3073,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 3103,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 3134,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 3165,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 3195,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 3226,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 3256,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 3287,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 3318,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 3346,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 3377,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 3407,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 3438,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 3468,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 3499,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": 3530,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 3560,
+"variable": "uempmed",
+"value":            5.5 
+},
+{
+ "date": 3591,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 3621,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 3652,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 3683,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 3712,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 3743,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 3773,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 3804,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 3834,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 3865,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 3896,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 3926,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 3957,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 3987,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 4018,
+"variable": "uempmed",
+"value":            7.4 
+},
+{
+ "date": 4049,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 4077,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 4108,
+"variable": "uempmed",
+"value":            7.4 
+},
+{
+ "date": 4138,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 4169,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 4199,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 4230,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 4261,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 4291,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 4322,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 4352,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 4383,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 4414,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 4442,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 4473,
+"variable": "uempmed",
+"value":            8.1 
+},
+{
+ "date": 4503,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 4534,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 4564,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 4595,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 4626,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 4656,
+"variable": "uempmed",
+"value":            9.7 
+},
+{
+ "date": 4687,
+"variable": "uempmed",
+"value":             10 
+},
+{
+ "date": 4717,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 4748,
+"variable": "uempmed",
+"value":           11.1 
+},
+{
+ "date": 4779,
+"variable": "uempmed",
+"value":            9.8 
+},
+{
+ "date": 4807,
+"variable": "uempmed",
+"value":           10.4 
+},
+{
+ "date": 4838,
+"variable": "uempmed",
+"value":           10.9 
+},
+{
+ "date": 4868,
+"variable": "uempmed",
+"value":           12.3 
+},
+{
+ "date": 4899,
+"variable": "uempmed",
+"value":           11.3 
+},
+{
+ "date": 4929,
+"variable": "uempmed",
+"value":           10.1 
+},
+{
+ "date": 4960,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 4991,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 5021,
+"variable": "uempmed",
+"value":            9.4 
+},
+{
+ "date": 5052,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 5082,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 5113,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 5144,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 5173,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 5204,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 5234,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 5265,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 5295,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 5326,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 5357,
+"variable": "uempmed",
+"value":            7.6 
+},
+{
+ "date": 5387,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 5418,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 5448,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 5479,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 5510,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 5538,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 5569,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 5599,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 5630,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 5660,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 5691,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 5722,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 5752,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 5783,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 5813,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 5844,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 5875,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 5903,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 5934,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 5964,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 5995,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 6025,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 6056,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 6087,
+"variable": "uempmed",
+"value":            7.4 
+},
+{
+ "date": 6117,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 6148,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 6178,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 6209,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 6240,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 6268,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 6299,
+"variable": "uempmed",
+"value":            7.1 
+},
+{
+ "date": 6329,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 6360,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 6390,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 6421,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 6452,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 6482,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 6513,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 6543,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 6574,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 6605,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 6634,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 6665,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 6695,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 6726,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 6756,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 6787,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 6818,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 6848,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 6879,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 6909,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 6940,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 6971,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 6999,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 7030,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 7060,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 7091,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 7121,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 7152,
+"variable": "uempmed",
+"value":              5 
+},
+{
+ "date": 7183,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 7213,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 7244,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": 7274,
+"variable": "uempmed",
+"value":            4.9 
+},
+{
+ "date": 7305,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": 7336,
+"variable": "uempmed",
+"value":            5.3 
+},
+{
+ "date": 7364,
+"variable": "uempmed",
+"value":            5.1 
+},
+{
+ "date": 7395,
+"variable": "uempmed",
+"value":            4.8 
+},
+{
+ "date": 7425,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 7456,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 7486,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 7517,
+"variable": "uempmed",
+"value":            5.4 
+},
+{
+ "date": 7548,
+"variable": "uempmed",
+"value":            5.6 
+},
+{
+ "date": 7578,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 7609,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 7639,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 7670,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 7701,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 7729,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 7760,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 7790,
+"variable": "uempmed",
+"value":            6.4 
+},
+{
+ "date": 7821,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 7851,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 7882,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 7913,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 7943,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 7974,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 8004,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 8035,
+"variable": "uempmed",
+"value":            8.1 
+},
+{
+ "date": 8066,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 8095,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 8126,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 8156,
+"variable": "uempmed",
+"value":            8.8 
+},
+{
+ "date": 8187,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 8217,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 8248,
+"variable": "uempmed",
+"value":            8.8 
+},
+{
+ "date": 8279,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 8309,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 8340,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 8370,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 8401,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 8432,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 8460,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 8491,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 8521,
+"variable": "uempmed",
+"value":            8.1 
+},
+{
+ "date": 8552,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 8582,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 8613,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 8644,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 8674,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 8705,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 8735,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 8766,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 8797,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 8825,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 8856,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 8886,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 8917,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 8947,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 8978,
+"variable": "uempmed",
+"value":            8.9 
+},
+{
+ "date": 9009,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 9039,
+"variable": "uempmed",
+"value":             10 
+},
+{
+ "date": 9070,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 9100,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 9131,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 9162,
+"variable": "uempmed",
+"value":            8.1 
+},
+{
+ "date": 9190,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9221,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9251,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 9282,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 9312,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 9343,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9374,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 9404,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 9435,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 9465,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9496,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9527,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 9556,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9587,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 9617,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 9648,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9678,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9709,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 9740,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 9770,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9801,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 9831,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 9862,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 9893,
+"variable": "uempmed",
+"value":            8.1 
+},
+{
+ "date": 9921,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 9952,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 9982,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 10013,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 10043,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 10074,
+"variable": "uempmed",
+"value":            7.8 
+},
+{
+ "date": 10105,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 10135,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 10166,
+"variable": "uempmed",
+"value":            7.6 
+},
+{
+ "date": 10196,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 10227,
+"variable": "uempmed",
+"value":            7.4 
+},
+{
+ "date": 10258,
+"variable": "uempmed",
+"value":              7 
+},
+{
+ "date": 10286,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 10317,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 10347,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 10378,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 10408,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 10439,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 10470,
+"variable": "uempmed",
+"value":            6.7 
+},
+{
+ "date": 10500,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 10531,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 10561,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 10592,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 10623,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 10651,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 10682,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 10712,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 10743,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 10773,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 10804,
+"variable": "uempmed",
+"value":            6.5 
+},
+{
+ "date": 10835,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 10865,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 10896,
+"variable": "uempmed",
+"value":            6.2 
+},
+{
+ "date": 10926,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 10957,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 10988,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 11017,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 11048,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 11078,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 11109,
+"variable": "uempmed",
+"value":            5.7 
+},
+{
+ "date": 11139,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 11170,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 11201,
+"variable": "uempmed",
+"value":            5.2 
+},
+{
+ "date": 11231,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 11262,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 11292,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 11323,
+"variable": "uempmed",
+"value":            5.8 
+},
+{
+ "date": 11354,
+"variable": "uempmed",
+"value":            6.1 
+},
+{
+ "date": 11382,
+"variable": "uempmed",
+"value":            6.6 
+},
+{
+ "date": 11413,
+"variable": "uempmed",
+"value":            5.9 
+},
+{
+ "date": 11443,
+"variable": "uempmed",
+"value":            6.3 
+},
+{
+ "date": 11474,
+"variable": "uempmed",
+"value":              6 
+},
+{
+ "date": 11504,
+"variable": "uempmed",
+"value":            6.8 
+},
+{
+ "date": 11535,
+"variable": "uempmed",
+"value":            6.9 
+},
+{
+ "date": 11566,
+"variable": "uempmed",
+"value":            7.2 
+},
+{
+ "date": 11596,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 11627,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 11657,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 11688,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 11719,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 11747,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 11778,
+"variable": "uempmed",
+"value":            8.9 
+},
+{
+ "date": 11808,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 11839,
+"variable": "uempmed",
+"value":             11 
+},
+{
+ "date": 11869,
+"variable": "uempmed",
+"value":            8.9 
+},
+{
+ "date": 11900,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 11931,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 11961,
+"variable": "uempmed",
+"value":            9.6 
+},
+{
+ "date": 11992,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 12022,
+"variable": "uempmed",
+"value":            9.6 
+},
+{
+ "date": 12053,
+"variable": "uempmed",
+"value":            9.6 
+},
+{
+ "date": 12084,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 12112,
+"variable": "uempmed",
+"value":            9.7 
+},
+{
+ "date": 12143,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 12173,
+"variable": "uempmed",
+"value":            9.9 
+},
+{
+ "date": 12204,
+"variable": "uempmed",
+"value":           11.5 
+},
+{
+ "date": 12234,
+"variable": "uempmed",
+"value":           10.3 
+},
+{
+ "date": 12265,
+"variable": "uempmed",
+"value":           10.1 
+},
+{
+ "date": 12296,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 12326,
+"variable": "uempmed",
+"value":           10.4 
+},
+{
+ "date": 12357,
+"variable": "uempmed",
+"value":           10.3 
+},
+{
+ "date": 12387,
+"variable": "uempmed",
+"value":           10.4 
+},
+{
+ "date": 12418,
+"variable": "uempmed",
+"value":           10.6 
+},
+{
+ "date": 12449,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 12478,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 12509,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 12539,
+"variable": "uempmed",
+"value":            9.9 
+},
+{
+ "date": 12570,
+"variable": "uempmed",
+"value":             11 
+},
+{
+ "date": 12600,
+"variable": "uempmed",
+"value":            8.9 
+},
+{
+ "date": 12631,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 12662,
+"variable": "uempmed",
+"value":            9.6 
+},
+{
+ "date": 12692,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 12723,
+"variable": "uempmed",
+"value":            9.7 
+},
+{
+ "date": 12753,
+"variable": "uempmed",
+"value":            9.5 
+},
+{
+ "date": 12784,
+"variable": "uempmed",
+"value":            9.4 
+},
+{
+ "date": 12815,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 12843,
+"variable": "uempmed",
+"value":            9.3 
+},
+{
+ "date": 12874,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 12904,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 12935,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 12965,
+"variable": "uempmed",
+"value":            8.8 
+},
+{
+ "date": 12996,
+"variable": "uempmed",
+"value":            9.2 
+},
+{
+ "date": 13027,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 13057,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 13088,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 13118,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13149,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 13180,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 13208,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13239,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 13269,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 13300,
+"variable": "uempmed",
+"value":            7.3 
+},
+{
+ "date": 13330,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 13361,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 13392,
+"variable": "uempmed",
+"value":              8 
+},
+{
+ "date": 13422,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 13453,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 13483,
+"variable": "uempmed",
+"value":            7.5 
+},
+{
+ "date": 13514,
+"variable": "uempmed",
+"value":            8.3 
+},
+{
+ "date": 13545,
+"variable": "uempmed",
+"value":            8.5 
+},
+{
+ "date": 13573,
+"variable": "uempmed",
+"value":            9.1 
+},
+{
+ "date": 13604,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 13634,
+"variable": "uempmed",
+"value":            8.2 
+},
+{
+ "date": 13665,
+"variable": "uempmed",
+"value":            7.7 
+},
+{
+ "date": 13695,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13726,
+"variable": "uempmed",
+"value":            8.8 
+},
+{
+ "date": 13757,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13787,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 13818,
+"variable": "uempmed",
+"value":            8.6 
+},
+{
+ "date": 13848,
+"variable": "uempmed",
+"value":            8.4 
+},
+{
+ "date": 13879,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 13910,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13939,
+"variable": "uempmed",
+"value":            8.7 
+},
+{
+ "date": 13970,
+"variable": "uempmed",
+"value":            9.4 
+},
+{
+ "date": 14000,
+"variable": "uempmed",
+"value":            7.9 
+},
+{
+ "date": 14031,
+"variable": "uempmed",
+"value":              9 
+},
+{
+ "date": 14061,
+"variable": "uempmed",
+"value":            9.7 
+},
+{
+ "date": 14092,
+"variable": "uempmed",
+"value":            9.7 
+},
+{
+ "date": 14123,
+"variable": "uempmed",
+"value":           10.2 
+},
+{
+ "date": 14153,
+"variable": "uempmed",
+"value":           10.4 
+},
+{
+ "date": 14184,
+"variable": "uempmed",
+"value":            9.8 
+},
+{
+ "date": 14214,
+"variable": "uempmed",
+"value":           10.5 
+},
+{
+ "date": 14245,
+"variable": "uempmed",
+"value":           10.7 
+},
+{
+ "date": 14276,
+"variable": "uempmed",
+"value":           11.7 
+},
+{
+ "date": 14304,
+"variable": "uempmed",
+"value":           12.3 
+},
+{
+ "date": 14335,
+"variable": "uempmed",
+"value":           13.1 
+},
+{
+ "date": 14365,
+"variable": "uempmed",
+"value":           14.2 
+},
+{
+ "date": 14396,
+"variable": "uempmed",
+"value":           17.2 
+},
+{
+ "date": 14426,
+"variable": "uempmed",
+"value":             16 
+},
+{
+ "date": 14457,
+"variable": "uempmed",
+"value":           16.3 
+},
+{
+ "date": 14488,
+"variable": "uempmed",
+"value":           17.8 
+},
+{
+ "date": 14518,
+"variable": "uempmed",
+"value":           18.9 
+},
+{
+ "date": 14549,
+"variable": "uempmed",
+"value":           19.8 
+},
+{
+ "date": 14579,
+"variable": "uempmed",
+"value":           20.1 
+},
+{
+ "date": 14610,
+"variable": "uempmed",
+"value":             20 
+},
+{
+ "date": 14641,
+"variable": "uempmed",
+"value":           19.9 
+},
+{
+ "date": 14669,
+"variable": "uempmed",
+"value":           20.4 
+},
+{
+ "date": 14700,
+"variable": "uempmed",
+"value":           22.1 
+},
+{
+ "date": 14730,
+"variable": "uempmed",
+"value":           22.3 
+},
+{
+ "date": 14761,
+"variable": "uempmed",
+"value":           25.2 
+},
+{
+ "date": 14791,
+"variable": "uempmed",
+"value":           22.3 
+},
+{
+ "date": 14822,
+"variable": "uempmed",
+"value":             21 
+},
+{
+ "date": 14853,
+"variable": "uempmed",
+"value":           20.3 
+},
+{
+ "date": 14883,
+"variable": "uempmed",
+"value":           21.2 
+},
+{
+ "date": 14914,
+"variable": "uempmed",
+"value":             21 
+},
+{
+ "date": 14944,
+"variable": "uempmed",
+"value":           21.9 
+},
+{
+ "date": 14975,
+"variable": "uempmed",
+"value":           21.6 
+},
+{
+ "date": 15006,
+"variable": "uempmed",
+"value":           21.1 
+},
+{
+ "date": 15034,
+"variable": "uempmed",
+"value":           21.5 
+},
+{
+ "date": 15065,
+"variable": "uempmed",
+"value":           20.9 
+},
+{
+ "date": 15095,
+"variable": "uempmed",
+"value":           21.6 
+},
+{
+ "date": 15126,
+"variable": "uempmed",
+"value":           22.3 
+},
+{
+ "date": 15156,
+"variable": "uempmed",
+"value":             22 
+},
+{
+ "date": 15187,
+"variable": "uempmed",
+"value":           22.4 
+},
+{
+ "date": 15218,
+"variable": "uempmed",
+"value":             22 
+},
+{
+ "date": 15248,
+"variable": "uempmed",
+"value":           20.5 
+},
+{
+ "date": 15279,
+"variable": "uempmed",
+"value":           20.9 
+},
+{
+ "date": 15309,
+"variable": "uempmed",
+"value":           20.5 
+},
+{
+ "date": 15340,
+"variable": "uempmed",
+"value":             21 
+},
+{
+ "date": 15371,
+"variable": "uempmed",
+"value":           19.8 
+},
+{
+ "date": 15400,
+"variable": "uempmed",
+"value":           19.2 
+},
+{
+ "date": 15431,
+"variable": "uempmed",
+"value":           19.1 
+},
+{
+ "date": 15461,
+"variable": "uempmed",
+"value":           19.9 
+},
+{
+ "date": 15492,
+"variable": "uempmed",
+"value":           20.1 
+},
+{
+ "date": 15522,
+"variable": "uempmed",
+"value":           17.5 
+},
+{
+ "date": 15553,
+"variable": "uempmed",
+"value":           18.5 
+},
+{
+ "date": 15584,
+"variable": "uempmed",
+"value":           18.8 
+},
+{
+ "date": 15614,
+"variable": "uempmed",
+"value":           19.7 
+},
+{
+ "date": 15645,
+"variable": "uempmed",
+"value":           18.5 
+},
+{
+ "date": 15675,
+"variable": "uempmed",
+"value":           17.6 
+},
+{
+ "date": 15706,
+"variable": "uempmed",
+"value":           16.2 
+},
+{
+ "date": 15737,
+"variable": "uempmed",
+"value":           17.5 
+},
+{
+ "date": 15765,
+"variable": "uempmed",
+"value":           17.7 
+},
+{
+ "date": 15796,
+"variable": "uempmed",
+"value":           17.1 
+},
+{
+ "date": 15826,
+"variable": "uempmed",
+"value":             17 
+},
+{
+ "date": 15857,
+"variable": "uempmed",
+"value":           16.6 
+},
+{
+ "date": 15887,
+"variable": "uempmed",
+"value":           16.3 
+},
+{
+ "date": 15918,
+"variable": "uempmed",
+"value":           16.8 
+},
+{
+ "date": 15949,
+"variable": "uempmed",
+"value":           16.5 
+},
+{
+ "date": 15979,
+"variable": "uempmed",
+"value":           16.1 
+},
+{
+ "date": 16010,
+"variable": "uempmed",
+"value":             17 
+},
+{
+ "date": 16040,
+"variable": "uempmed",
+"value":             17 
+},
+{
+ "date": 16071,
+"variable": "uempmed",
+"value":           15.9 
+},
+{
+ "date": 16102,
+"variable": "uempmed",
+"value":           16.2 
+},
+{
+ "date": 16130,
+"variable": "uempmed",
+"value":           15.9 
+},
+{
+ "date": 16161,
+"variable": "uempmed",
+"value":           15.6 
+},
+{
+ "date": 16191,
+"variable": "uempmed",
+"value":           14.5 
+},
+{
+ "date": 16222,
+"variable": "uempmed",
+"value":           13.2 
+},
+{
+ "date": 16252,
+"variable": "uempmed",
+"value":           13.5 
+},
+{
+ "date": 16283,
+"variable": "uempmed",
+"value":           13.3 
+},
+{
+ "date": 16314,
+"variable": "uempmed",
+"value":           13.3 
+},
+{
+ "date": 16344,
+"variable": "uempmed",
+"value":           13.5 
+},
+{
+ "date": 16375,
+"variable": "uempmed",
+"value":           12.8 
+},
+{
+ "date": 16405,
+"variable": "uempmed",
+"value":           12.6 
+},
+{
+ "date": 16436,
+"variable": "uempmed",
+"value":           13.4 
+},
+{
+ "date": 16467,
+"variable": "uempmed",
+"value":           13.1 
+},
+{
+ "date": 16495,
+"variable": "uempmed",
+"value":           12.2 
+},
+{
+ "date": 16526,
+"variable": "uempmed",
+"value":           11.7 
+},
+{
+ "date": -915,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": -884,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": -853,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": -823,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": -792,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": -762,
+"variable": "psavert",
+"value":           12.1 
+},
+{
+ "date": -731,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": -700,
+"variable": "psavert",
+"value":           12.2 
+},
+{
+ "date": -671,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": -640,
+"variable": "psavert",
+"value":           12.2 
+},
+{
+ "date": -610,
+"variable": "psavert",
+"value":             12 
+},
+{
+ "date": -579,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": -549,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": -518,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": -487,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": -457,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": -426,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": -396,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": -365,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": -334,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": -306,
+"variable": "psavert",
+"value":            9.9 
+},
+{
+ "date": -275,
+"variable": "psavert",
+"value":            9.5 
+},
+{
+ "date": -245,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": -214,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": -184,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": -153,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": -122,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": -92,
+"variable": "psavert",
+"value":           11.3 
+},
+{
+ "date": -61,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": -31,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 0,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 31,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": 59,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 90,
+"variable": "psavert",
+"value":           13.3 
+},
+{
+ "date": 120,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 151,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 181,
+"variable": "psavert",
+"value":           13.2 
+},
+{
+ "date": 212,
+"variable": "psavert",
+"value":           13.1 
+},
+{
+ "date": 243,
+"variable": "psavert",
+"value":           12.9 
+},
+{
+ "date": 273,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 304,
+"variable": "psavert",
+"value":           13.3 
+},
+{
+ "date": 334,
+"variable": "psavert",
+"value":           12.9 
+},
+{
+ "date": 365,
+"variable": "psavert",
+"value":           13.1 
+},
+{
+ "date": 396,
+"variable": "psavert",
+"value":           13.1 
+},
+{
+ "date": 424,
+"variable": "psavert",
+"value":           13.3 
+},
+{
+ "date": 455,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 485,
+"variable": "psavert",
+"value":           13.4 
+},
+{
+ "date": 516,
+"variable": "psavert",
+"value":           14.4 
+},
+{
+ "date": 546,
+"variable": "psavert",
+"value":           13.6 
+},
+{
+ "date": 577,
+"variable": "psavert",
+"value":           13.6 
+},
+{
+ "date": 608,
+"variable": "psavert",
+"value":           12.9 
+},
+{
+ "date": 638,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 669,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 699,
+"variable": "psavert",
+"value":           12.9 
+},
+{
+ "date": 730,
+"variable": "psavert",
+"value":           12.4 
+},
+{
+ "date": 761,
+"variable": "psavert",
+"value":           12.6 
+},
+{
+ "date": 790,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": 821,
+"variable": "psavert",
+"value":           11.3 
+},
+{
+ "date": 851,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": 882,
+"variable": "psavert",
+"value":           11.4 
+},
+{
+ "date": 912,
+"variable": "psavert",
+"value":           11.4 
+},
+{
+ "date": 943,
+"variable": "psavert",
+"value":           11.8 
+},
+{
+ "date": 974,
+"variable": "psavert",
+"value":             12 
+},
+{
+ "date": 1004,
+"variable": "psavert",
+"value":           12.7 
+},
+{
+ "date": 1035,
+"variable": "psavert",
+"value":           13.4 
+},
+{
+ "date": 1065,
+"variable": "psavert",
+"value":           13.4 
+},
+{
+ "date": 1096,
+"variable": "psavert",
+"value":           12.1 
+},
+{
+ "date": 1127,
+"variable": "psavert",
+"value":           12.2 
+},
+{
+ "date": 1155,
+"variable": "psavert",
+"value":           12.4 
+},
+{
+ "date": 1186,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 1216,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 1247,
+"variable": "psavert",
+"value":           13.2 
+},
+{
+ "date": 1277,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 1308,
+"variable": "psavert",
+"value":           13.6 
+},
+{
+ "date": 1339,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 1369,
+"variable": "psavert",
+"value":             14 
+},
+{
+ "date": 1400,
+"variable": "psavert",
+"value":             14 
+},
+{
+ "date": 1430,
+"variable": "psavert",
+"value":           14.4 
+},
+{
+ "date": 1461,
+"variable": "psavert",
+"value":             14 
+},
+{
+ "date": 1492,
+"variable": "psavert",
+"value":           13.8 
+},
+{
+ "date": 1520,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 1551,
+"variable": "psavert",
+"value":           12.7 
+},
+{
+ "date": 1581,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 1612,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": 1642,
+"variable": "psavert",
+"value":           12.7 
+},
+{
+ "date": 1673,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": 1704,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 1734,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 1765,
+"variable": "psavert",
+"value":           13.4 
+},
+{
+ "date": 1795,
+"variable": "psavert",
+"value":           13.6 
+},
+{
+ "date": 1826,
+"variable": "psavert",
+"value":           12.8 
+},
+{
+ "date": 1857,
+"variable": "psavert",
+"value":           12.1 
+},
+{
+ "date": 1885,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 1916,
+"variable": "psavert",
+"value":           13.9 
+},
+{
+ "date": 1946,
+"variable": "psavert",
+"value":             17 
+},
+{
+ "date": 1977,
+"variable": "psavert",
+"value":           13.9 
+},
+{
+ "date": 2007,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 2038,
+"variable": "psavert",
+"value":           12.6 
+},
+{
+ "date": 2069,
+"variable": "psavert",
+"value":           12.6 
+},
+{
+ "date": 2099,
+"variable": "psavert",
+"value":             13 
+},
+{
+ "date": 2130,
+"variable": "psavert",
+"value":           12.3 
+},
+{
+ "date": 2160,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": 2191,
+"variable": "psavert",
+"value":           11.3 
+},
+{
+ "date": 2222,
+"variable": "psavert",
+"value":           11.9 
+},
+{
+ "date": 2251,
+"variable": "psavert",
+"value":           11.8 
+},
+{
+ "date": 2282,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 2312,
+"variable": "psavert",
+"value":           11.8 
+},
+{
+ "date": 2343,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": 2373,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 2404,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 2435,
+"variable": "psavert",
+"value":           10.8 
+},
+{
+ "date": 2465,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": 2496,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": 2526,
+"variable": "psavert",
+"value":            9.9 
+},
+{
+ "date": 2557,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 2588,
+"variable": "psavert",
+"value":            8.5 
+},
+{
+ "date": 2616,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 2647,
+"variable": "psavert",
+"value":            9.9 
+},
+{
+ "date": 2677,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 2708,
+"variable": "psavert",
+"value":           10.2 
+},
+{
+ "date": 2738,
+"variable": "psavert",
+"value":           10.1 
+},
+{
+ "date": 2769,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 2800,
+"variable": "psavert",
+"value":           10.7 
+},
+{
+ "date": 2830,
+"variable": "psavert",
+"value":           10.7 
+},
+{
+ "date": 2861,
+"variable": "psavert",
+"value":           10.8 
+},
+{
+ "date": 2891,
+"variable": "psavert",
+"value":             11 
+},
+{
+ "date": 2922,
+"variable": "psavert",
+"value":           11.4 
+},
+{
+ "date": 2953,
+"variable": "psavert",
+"value":           10.7 
+},
+{
+ "date": 2981,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 3012,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 3042,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 3073,
+"variable": "psavert",
+"value":            9.5 
+},
+{
+ "date": 3103,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 3134,
+"variable": "psavert",
+"value":            9.9 
+},
+{
+ "date": 3165,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": 3195,
+"variable": "psavert",
+"value":           10.2 
+},
+{
+ "date": 3226,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": 3256,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": 3287,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": 3318,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 3346,
+"variable": "psavert",
+"value":           10.7 
+},
+{
+ "date": 3377,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": 3407,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 3438,
+"variable": "psavert",
+"value":            9.3 
+},
+{
+ "date": 3468,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": 3499,
+"variable": "psavert",
+"value":            9.2 
+},
+{
+ "date": 3530,
+"variable": "psavert",
+"value":            8.9 
+},
+{
+ "date": 3560,
+"variable": "psavert",
+"value":            9.3 
+},
+{
+ "date": 3591,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 3621,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 3652,
+"variable": "psavert",
+"value":            9.6 
+},
+{
+ "date": 3683,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 3712,
+"variable": "psavert",
+"value":            9.8 
+},
+{
+ "date": 3743,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 3773,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": 3804,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": 3834,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 3865,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": 3896,
+"variable": "psavert",
+"value":           11.1 
+},
+{
+ "date": 3926,
+"variable": "psavert",
+"value":             11 
+},
+{
+ "date": 3957,
+"variable": "psavert",
+"value":           11.5 
+},
+{
+ "date": 3987,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 4018,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 4049,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": 4077,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 4108,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 4138,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": 4169,
+"variable": "psavert",
+"value":           10.2 
+},
+{
+ "date": 4199,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 4230,
+"variable": "psavert",
+"value":           11.4 
+},
+{
+ "date": 4261,
+"variable": "psavert",
+"value":           11.9 
+},
+{
+ "date": 4291,
+"variable": "psavert",
+"value":           12.5 
+},
+{
+ "date": 4322,
+"variable": "psavert",
+"value":           12.7 
+},
+{
+ "date": 4352,
+"variable": "psavert",
+"value":             12 
+},
+{
+ "date": 4383,
+"variable": "psavert",
+"value":           12.2 
+},
+{
+ "date": 4414,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": 4442,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 4473,
+"variable": "psavert",
+"value":           12.4 
+},
+{
+ "date": 4503,
+"variable": "psavert",
+"value":           11.7 
+},
+{
+ "date": 4534,
+"variable": "psavert",
+"value":           11.6 
+},
+{
+ "date": 4564,
+"variable": "psavert",
+"value":             12 
+},
+{
+ "date": 4595,
+"variable": "psavert",
+"value":           11.9 
+},
+{
+ "date": 4626,
+"variable": "psavert",
+"value":           11.1 
+},
+{
+ "date": 4656,
+"variable": "psavert",
+"value":           10.7 
+},
+{
+ "date": 4687,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 4717,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 4748,
+"variable": "psavert",
+"value":           10.4 
+},
+{
+ "date": 4779,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 4807,
+"variable": "psavert",
+"value":             10 
+},
+{
+ "date": 4838,
+"variable": "psavert",
+"value":            9.6 
+},
+{
+ "date": 4868,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 4899,
+"variable": "psavert",
+"value":            8.5 
+},
+{
+ "date": 4929,
+"variable": "psavert",
+"value":              9 
+},
+{
+ "date": 4960,
+"variable": "psavert",
+"value":            8.7 
+},
+{
+ "date": 4991,
+"variable": "psavert",
+"value":              9 
+},
+{
+ "date": 5021,
+"variable": "psavert",
+"value":            9.1 
+},
+{
+ "date": 5052,
+"variable": "psavert",
+"value":            9.7 
+},
+{
+ "date": 5082,
+"variable": "psavert",
+"value":            9.5 
+},
+{
+ "date": 5113,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 5144,
+"variable": "psavert",
+"value":           11.1 
+},
+{
+ "date": 5173,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": 5204,
+"variable": "psavert",
+"value":           10.9 
+},
+{
+ "date": 5234,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 5265,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 5295,
+"variable": "psavert",
+"value":             11 
+},
+{
+ "date": 5326,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 5357,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 5387,
+"variable": "psavert",
+"value":           11.2 
+},
+{
+ "date": 5418,
+"variable": "psavert",
+"value":           10.3 
+},
+{
+ "date": 5448,
+"variable": "psavert",
+"value":           10.6 
+},
+{
+ "date": 5479,
+"variable": "psavert",
+"value":            9.7 
+},
+{
+ "date": 5510,
+"variable": "psavert",
+"value":            8.5 
+},
+{
+ "date": 5538,
+"variable": "psavert",
+"value":            8.1 
+},
+{
+ "date": 5569,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 5599,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 5630,
+"variable": "psavert",
+"value":              9 
+},
+{
+ "date": 5660,
+"variable": "psavert",
+"value":            8.5 
+},
+{
+ "date": 5691,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 5722,
+"variable": "psavert",
+"value":            6.7 
+},
+{
+ "date": 5752,
+"variable": "psavert",
+"value":            8.5 
+},
+{
+ "date": 5783,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 5813,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 5844,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 5875,
+"variable": "psavert",
+"value":            8.7 
+},
+{
+ "date": 5903,
+"variable": "psavert",
+"value":            9.3 
+},
+{
+ "date": 5934,
+"variable": "psavert",
+"value":            9.1 
+},
+{
+ "date": 5964,
+"variable": "psavert",
+"value":            8.6 
+},
+{
+ "date": 5995,
+"variable": "psavert",
+"value":            8.8 
+},
+{
+ "date": 6025,
+"variable": "psavert",
+"value":            8.7 
+},
+{
+ "date": 6056,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 6087,
+"variable": "psavert",
+"value":            6.6 
+},
+{
+ "date": 6117,
+"variable": "psavert",
+"value":            7.8 
+},
+{
+ "date": 6148,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 6178,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 6209,
+"variable": "psavert",
+"value":            9.1 
+},
+{
+ "date": 6240,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 6268,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 6299,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 6329,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 6360,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 6390,
+"variable": "psavert",
+"value":            6.8 
+},
+{
+ "date": 6421,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 6452,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 6482,
+"variable": "psavert",
+"value":            7.6 
+},
+{
+ "date": 6513,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 6543,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 6574,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 6605,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 6634,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 6665,
+"variable": "psavert",
+"value":            8.1 
+},
+{
+ "date": 6695,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 6726,
+"variable": "psavert",
+"value":            7.8 
+},
+{
+ "date": 6756,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 6787,
+"variable": "psavert",
+"value":            7.8 
+},
+{
+ "date": 6818,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 6848,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 6879,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 6909,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 6940,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 6971,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 6999,
+"variable": "psavert",
+"value":            8.9 
+},
+{
+ "date": 7030,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 7060,
+"variable": "psavert",
+"value":            7.6 
+},
+{
+ "date": 7091,
+"variable": "psavert",
+"value":            7.6 
+},
+{
+ "date": 7121,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 7152,
+"variable": "psavert",
+"value":            7.1 
+},
+{
+ "date": 7183,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 7213,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 7244,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 7274,
+"variable": "psavert",
+"value":            7.2 
+},
+{
+ "date": 7305,
+"variable": "psavert",
+"value":            7.4 
+},
+{
+ "date": 7336,
+"variable": "psavert",
+"value":            8.1 
+},
+{
+ "date": 7364,
+"variable": "psavert",
+"value":            7.8 
+},
+{
+ "date": 7395,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 7425,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 7456,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 7486,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 7517,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 7548,
+"variable": "psavert",
+"value":            7.5 
+},
+{
+ "date": 7578,
+"variable": "psavert",
+"value":            7.3 
+},
+{
+ "date": 7609,
+"variable": "psavert",
+"value":            7.4 
+},
+{
+ "date": 7639,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 7670,
+"variable": "psavert",
+"value":            8.7 
+},
+{
+ "date": 7701,
+"variable": "psavert",
+"value":            8.3 
+},
+{
+ "date": 7729,
+"variable": "psavert",
+"value":            7.4 
+},
+{
+ "date": 7760,
+"variable": "psavert",
+"value":              8 
+},
+{
+ "date": 7790,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 7821,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 7851,
+"variable": "psavert",
+"value":            7.6 
+},
+{
+ "date": 7882,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 7913,
+"variable": "psavert",
+"value":            8.1 
+},
+{
+ "date": 7943,
+"variable": "psavert",
+"value":            8.6 
+},
+{
+ "date": 7974,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 8004,
+"variable": "psavert",
+"value":            9.1 
+},
+{
+ "date": 8035,
+"variable": "psavert",
+"value":            8.8 
+},
+{
+ "date": 8066,
+"variable": "psavert",
+"value":            9.2 
+},
+{
+ "date": 8095,
+"variable": "psavert",
+"value":            9.2 
+},
+{
+ "date": 8126,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 8156,
+"variable": "psavert",
+"value":            9.4 
+},
+{
+ "date": 8187,
+"variable": "psavert",
+"value":            9.5 
+},
+{
+ "date": 8217,
+"variable": "psavert",
+"value":            9.1 
+},
+{
+ "date": 8248,
+"variable": "psavert",
+"value":            9.2 
+},
+{
+ "date": 8279,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 8309,
+"variable": "psavert",
+"value":            7.4 
+},
+{
+ "date": 8340,
+"variable": "psavert",
+"value":            7.3 
+},
+{
+ "date": 8370,
+"variable": "psavert",
+"value":            9.9 
+},
+{
+ "date": 8401,
+"variable": "psavert",
+"value":            8.3 
+},
+{
+ "date": 8432,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 8460,
+"variable": "psavert",
+"value":            8.3 
+},
+{
+ "date": 8491,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 8521,
+"variable": "psavert",
+"value":            7.7 
+},
+{
+ "date": 8552,
+"variable": "psavert",
+"value":            7.2 
+},
+{
+ "date": 8582,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 8613,
+"variable": "psavert",
+"value":            7.1 
+},
+{
+ "date": 8644,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 8674,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 8705,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 8735,
+"variable": "psavert",
+"value":            8.4 
+},
+{
+ "date": 8766,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 8797,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 8825,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 8856,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 8886,
+"variable": "psavert",
+"value":            7.1 
+},
+{
+ "date": 8917,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 8947,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 8978,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 9009,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 9039,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 9070,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 9100,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 9131,
+"variable": "psavert",
+"value":            6.9 
+},
+{
+ "date": 9162,
+"variable": "psavert",
+"value":            7.3 
+},
+{
+ "date": 9190,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 9221,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 9251,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 9282,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9312,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 9343,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9374,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9404,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 9435,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 9465,
+"variable": "psavert",
+"value":            5.5 
+},
+{
+ "date": 9496,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9527,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9556,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 9587,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 9617,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9648,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 9678,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 9709,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 9740,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 9770,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 9801,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 9831,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 9862,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 9893,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 9921,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 9952,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 9982,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 10013,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 10043,
+"variable": "psavert",
+"value":            5.5 
+},
+{
+ "date": 10074,
+"variable": "psavert",
+"value":            5.4 
+},
+{
+ "date": 10105,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 10135,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 10166,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 10196,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 10227,
+"variable": "psavert",
+"value":            6.7 
+},
+{
+ "date": 10258,
+"variable": "psavert",
+"value":            6.8 
+},
+{
+ "date": 10286,
+"variable": "psavert",
+"value":            6.9 
+},
+{
+ "date": 10317,
+"variable": "psavert",
+"value":            6.6 
+},
+{
+ "date": 10347,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 10378,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 10408,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 10439,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 10470,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 10500,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 10531,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 10561,
+"variable": "psavert",
+"value":            5.2 
+},
+{
+ "date": 10592,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 10623,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 10651,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 10682,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 10712,
+"variable": "psavert",
+"value":            4.3 
+},
+{
+ "date": 10743,
+"variable": "psavert",
+"value":            4.2 
+},
+{
+ "date": 10773,
+"variable": "psavert",
+"value":            4.1 
+},
+{
+ "date": 10804,
+"variable": "psavert",
+"value":              4 
+},
+{
+ "date": 10835,
+"variable": "psavert",
+"value":            3.5 
+},
+{
+ "date": 10865,
+"variable": "psavert",
+"value":            3.9 
+},
+{
+ "date": 10896,
+"variable": "psavert",
+"value":            4.1 
+},
+{
+ "date": 10926,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 10957,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 10988,
+"variable": "psavert",
+"value":            4.2 
+},
+{
+ "date": 11017,
+"variable": "psavert",
+"value":            3.9 
+},
+{
+ "date": 11048,
+"variable": "psavert",
+"value":            4.4 
+},
+{
+ "date": 11078,
+"variable": "psavert",
+"value":            4.2 
+},
+{
+ "date": 11109,
+"variable": "psavert",
+"value":            4.2 
+},
+{
+ "date": 11139,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 11170,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 11201,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 11231,
+"variable": "psavert",
+"value":              4 
+},
+{
+ "date": 11262,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 11292,
+"variable": "psavert",
+"value":            3.5 
+},
+{
+ "date": 11323,
+"variable": "psavert",
+"value":              4 
+},
+{
+ "date": 11354,
+"variable": "psavert",
+"value":            4.1 
+},
+{
+ "date": 11382,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 11413,
+"variable": "psavert",
+"value":            4.3 
+},
+{
+ "date": 11443,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 11474,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 11504,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 11535,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 11566,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 11596,
+"variable": "psavert",
+"value":            2.7 
+},
+{
+ "date": 11627,
+"variable": "psavert",
+"value":            3.4 
+},
+{
+ "date": 11657,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 11688,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 11719,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 11747,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 11778,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 11808,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 11839,
+"variable": "psavert",
+"value":            5.4 
+},
+{
+ "date": 11869,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 11900,
+"variable": "psavert",
+"value":            4.4 
+},
+{
+ "date": 11931,
+"variable": "psavert",
+"value":            4.9 
+},
+{
+ "date": 11961,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 11992,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 12022,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12053,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12084,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 12112,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 12143,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 12173,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 12204,
+"variable": "psavert",
+"value":            4.9 
+},
+{
+ "date": 12234,
+"variable": "psavert",
+"value":            5.5 
+},
+{
+ "date": 12265,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 12296,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12326,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 12357,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 12387,
+"variable": "psavert",
+"value":            4.8 
+},
+{
+ "date": 12418,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12449,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12478,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12509,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 12539,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 12570,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 12600,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 12631,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 12662,
+"variable": "psavert",
+"value":            3.9 
+},
+{
+ "date": 12692,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 12723,
+"variable": "psavert",
+"value":            3.4 
+},
+{
+ "date": 12753,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 12784,
+"variable": "psavert",
+"value":            2.9 
+},
+{
+ "date": 12815,
+"variable": "psavert",
+"value":            2.7 
+},
+{
+ "date": 12843,
+"variable": "psavert",
+"value":            2.7 
+},
+{
+ "date": 12874,
+"variable": "psavert",
+"value":            2.1 
+},
+{
+ "date": 12904,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 12935,
+"variable": "psavert",
+"value":            2.2 
+},
+{
+ "date": 12965,
+"variable": "psavert",
+"value":            1.9 
+},
+{
+ "date": 12996,
+"variable": "psavert",
+"value":            2.4 
+},
+{
+ "date": 13027,
+"variable": "psavert",
+"value":            2.3 
+},
+{
+ "date": 13057,
+"variable": "psavert",
+"value":            2.6 
+},
+{
+ "date": 13088,
+"variable": "psavert",
+"value":            2.7 
+},
+{
+ "date": 13118,
+"variable": "psavert",
+"value":            2.8 
+},
+{
+ "date": 13149,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 13180,
+"variable": "psavert",
+"value":            3.8 
+},
+{
+ "date": 13208,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 13239,
+"variable": "psavert",
+"value":            3.4 
+},
+{
+ "date": 13269,
+"variable": "psavert",
+"value":            3.2 
+},
+{
+ "date": 13300,
+"variable": "psavert",
+"value":            3.4 
+},
+{
+ "date": 13330,
+"variable": "psavert",
+"value":            2.9 
+},
+{
+ "date": 13361,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13392,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13422,
+"variable": "psavert",
+"value":            3.1 
+},
+{
+ "date": 13453,
+"variable": "psavert",
+"value":            3.2 
+},
+{
+ "date": 13483,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13514,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13545,
+"variable": "psavert",
+"value":            3.3 
+},
+{
+ "date": 13573,
+"variable": "psavert",
+"value":            3.6 
+},
+{
+ "date": 13604,
+"variable": "psavert",
+"value":            3.2 
+},
+{
+ "date": 13634,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13665,
+"variable": "psavert",
+"value":            2.8 
+},
+{
+ "date": 13695,
+"variable": "psavert",
+"value":            2.8 
+},
+{
+ "date": 13726,
+"variable": "psavert",
+"value":            2.6 
+},
+{
+ "date": 13757,
+"variable": "psavert",
+"value":            2.8 
+},
+{
+ "date": 13787,
+"variable": "psavert",
+"value":            2.8 
+},
+{
+ "date": 13818,
+"variable": "psavert",
+"value":            2.5 
+},
+{
+ "date": 13848,
+"variable": "psavert",
+"value":              3 
+},
+{
+ "date": 13879,
+"variable": "psavert",
+"value":            3.4 
+},
+{
+ "date": 13910,
+"variable": "psavert",
+"value":            3.9 
+},
+{
+ "date": 13939,
+"variable": "psavert",
+"value":              4 
+},
+{
+ "date": 13970,
+"variable": "psavert",
+"value":            3.5 
+},
+{
+ "date": 14000,
+"variable": "psavert",
+"value":            7.9 
+},
+{
+ "date": 14031,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 14061,
+"variable": "psavert",
+"value":            4.4 
+},
+{
+ "date": 14092,
+"variable": "psavert",
+"value":            3.7 
+},
+{
+ "date": 14123,
+"variable": "psavert",
+"value":            4.4 
+},
+{
+ "date": 14153,
+"variable": "psavert",
+"value":            5.4 
+},
+{
+ "date": 14184,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 14214,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 14245,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 14276,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 14304,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 14335,
+"variable": "psavert",
+"value":            6.7 
+},
+{
+ "date": 14365,
+"variable": "psavert",
+"value":            8.1 
+},
+{
+ "date": 14396,
+"variable": "psavert",
+"value":            6.7 
+},
+{
+ "date": 14426,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 14457,
+"variable": "psavert",
+"value":            4.9 
+},
+{
+ "date": 14488,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 14518,
+"variable": "psavert",
+"value":            5.4 
+},
+{
+ "date": 14549,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 14579,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 14610,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 14641,
+"variable": "psavert",
+"value":            5.2 
+},
+{
+ "date": 14669,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 14700,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 14730,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 14761,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 14791,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 14822,
+"variable": "psavert",
+"value":            5.8 
+},
+{
+ "date": 14853,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 14883,
+"variable": "psavert",
+"value":            5.4 
+},
+{
+ "date": 14914,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 14944,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 14975,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 15006,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 15034,
+"variable": "psavert",
+"value":              6 
+},
+{
+ "date": 15065,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 15095,
+"variable": "psavert",
+"value":            5.9 
+},
+{
+ "date": 15126,
+"variable": "psavert",
+"value":            6.1 
+},
+{
+ "date": 15156,
+"variable": "psavert",
+"value":            6.3 
+},
+{
+ "date": 15187,
+"variable": "psavert",
+"value":            6.2 
+},
+{
+ "date": 15218,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 15248,
+"variable": "psavert",
+"value":            5.5 
+},
+{
+ "date": 15279,
+"variable": "psavert",
+"value":            5.6 
+},
+{
+ "date": 15309,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 15340,
+"variable": "psavert",
+"value":            6.6 
+},
+{
+ "date": 15371,
+"variable": "psavert",
+"value":            6.7 
+},
+{
+ "date": 15400,
+"variable": "psavert",
+"value":            6.9 
+},
+{
+ "date": 15431,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 15461,
+"variable": "psavert",
+"value":              7 
+},
+{
+ "date": 15492,
+"variable": "psavert",
+"value":            7.1 
+},
+{
+ "date": 15522,
+"variable": "psavert",
+"value":            6.6 
+},
+{
+ "date": 15553,
+"variable": "psavert",
+"value":            6.4 
+},
+{
+ "date": 15584,
+"variable": "psavert",
+"value":            6.5 
+},
+{
+ "date": 15614,
+"variable": "psavert",
+"value":            7.1 
+},
+{
+ "date": 15645,
+"variable": "psavert",
+"value":            8.2 
+},
+{
+ "date": 15675,
+"variable": "psavert",
+"value":           10.5 
+},
+{
+ "date": 15706,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 15737,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 15765,
+"variable": "psavert",
+"value":            4.9 
+},
+{
+ "date": 15796,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 15826,
+"variable": "psavert",
+"value":            5.2 
+},
+{
+ "date": 15857,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 15887,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 15918,
+"variable": "psavert",
+"value":            5.3 
+},
+{
+ "date": 15949,
+"variable": "psavert",
+"value":            5.2 
+},
+{
+ "date": 15979,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 16010,
+"variable": "psavert",
+"value":            4.3 
+},
+{
+ "date": 16040,
+"variable": "psavert",
+"value":            4.1 
+},
+{
+ "date": 16071,
+"variable": "psavert",
+"value":            4.9 
+},
+{
+ "date": 16102,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 16130,
+"variable": "psavert",
+"value":            4.8 
+},
+{
+ "date": 16161,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 16191,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 16222,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 16252,
+"variable": "psavert",
+"value":            5.1 
+},
+{
+ "date": 16283,
+"variable": "psavert",
+"value":            4.7 
+},
+{
+ "date": 16314,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 16344,
+"variable": "psavert",
+"value":            4.6 
+},
+{
+ "date": 16375,
+"variable": "psavert",
+"value":            4.5 
+},
+{
+ "date": 16405,
+"variable": "psavert",
+"value":              5 
+},
+{
+ "date": 16436,
+"variable": "psavert",
+"value":            5.5 
+},
+{
+ "date": 16467,
+"variable": "psavert",
+"value":            5.7 
+},
+{
+ "date": 16495,
+"variable": "psavert",
+"value":            5.2 
+},
+{
+ "date": 16526,
+"variable": "psavert",
+"value":            5.6 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        
+          
+        chart.xAxis
+  .tickFormat(function(d) {return d3.time.format('%b %Y')(new Date( d * 86400000 ));})
+
+        chart.x2Axis
+  .tickFormat(function(d) {return d3.time.format('%b %Y')(new Date( d * 86400000 ));})
+        
+        
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>

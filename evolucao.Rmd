@@ -80,7 +80,9 @@ ev.carteira.plot$xAxis( tickFormat="#!function(d) {
                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
                 }
         !#" )
-ev.carteira.plot$print(include_assets=T)
+ev.carteira.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+
+# ev.carteira.plot$print(include_assets=T)
 
 
 
@@ -145,11 +147,11 @@ ev.investimentos <- melt(df.wide, id.vars = "Index") %>%
                value = round(value,3)
                ) 
 #creating colors for each var
-colourCount <- length(unique(ev.investimentos$variable))
-paleta <- colorRampPalette(brewer.pal(colourCount, "Set1"))
-colors <- paleta(colourCount)
-
-ev.investimentos$colors <- colors[ev.investimentos$variable]
+# colourCount <- length(unique(ev.investimentos$variable))
+# paleta <- colorRampPalette(brewer.pal(colourCount, "Set1"))
+# colors <- paleta(colourCount)
+# 
+# ev.investimentos$colors <- colors[ev.investimentos$variable]
 
       
         
@@ -169,7 +171,8 @@ ev.investimentos.plot$xAxis( tickFormat="#!function(d) {
                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
                 }
         !#" )
-ev.investimentos.plot$print(include_assets=T)
+ev.investimentos.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+# ev.investimentos.plot$print(include_assets=T)
 
 
 

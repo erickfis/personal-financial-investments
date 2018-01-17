@@ -47,7 +47,9 @@ df.diff.plot$xAxis( tickFormat="#!function(d) {
                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
                 }
         !#" )
-df.diff.plot$print(include_assets=T)
+df.diff.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+# df.diff.plot$print(include_assets=T)
+
 ```
 
 

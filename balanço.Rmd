@@ -1,4 +1,3 @@
-
 ## Balanço
 
 ```{r}
@@ -27,6 +26,7 @@ plot.data <-  group_by(df, fundo) %>%
 
         )  %>% filter(saldo.total > 0) %>% 
         arrange(desc(rendimento.mes))
+
 
 
 # add margin with totals, for tables

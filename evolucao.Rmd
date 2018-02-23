@@ -2,6 +2,57 @@
 
 ## Evolução 
 
+
+### Movimentação mensal
+
+```{r results='asis'}
+
+mov.mensal <- df[,c(2:7)] %>% group_by(data) %>% 
+        summarise(entrada = sum(investimento), saida = sum(saque))
+
+mov.mensal <- xts(mov.mensal[,-1], order.by = mov.mensal$data) %>% na.locf()
+
+mov.mensal$saida <- -1* mov.mensal$saida
+
+mov.mensal <- apply.monthly(mov.mensal, sum)
+
+# mov.mensal.df <- fortify(mov.mensal["2017-08/"])
+# names(mov.mensal.df) <- c("Index", "mov.mensal")
+
+
+mov.mensal.df <- mov.mensal %>% fortify() %>% melt(id.vars="Index") %>% 
+        mutate(Index = as.Date(Index),
+               value = round(value,3)
+               )  
+
+
+mov.mensal.plot <- nPlot(value ~ Index,
+                     # data = mov.mensal.df, type = 'lineWithFocusChart')
+                     data = mov.mensal.df, type = 'scatterChart')
+
+mov.mensal.plot$xAxis( tickFormat="#!function(d) {
+                    if (typeof d === 'string') {
+                        d = parseFloat(d);
+                    }
+                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+                }
+        !#" )
+
+mov.mensal.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+
+# mov.mensal.df %>% ggplot(aes(Index, mov.mensal))+
+#         geom_point(stat = "identity") + 
+#         geom_text(aes(label=mov.mensal, size=4)) +
+#         ggtitle("Saldo Atual de cada fundo (R$)") +
+#         theme_economist() + scale_fill_economist() +
+#         tema 
+
+
+```
+
+
+
+
 ```{r}
 # evolução da carteira
 
@@ -67,6 +118,8 @@ ev.carteira <- carteira["2017-06/"] %>% fortify() %>% melt(id.vars="Index") %>%
 ```
 
 ### Evolução da carteira
+
+
 
 ```{r results="asis"}
 # nvd3 plot for account evolution

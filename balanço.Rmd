@@ -24,7 +24,8 @@ plot.data <-  group_by(df, fundo) %>%
                                           ifelse(rendimento.perc < 0,
                                                  -1,1))
 
-        )  %>% filter(saldo.total > 0) %>% 
+        )  %>% 
+        #filter(saldo.total > 0) %>% 
         arrange(desc(rendimento.mes))
 
 
@@ -45,7 +46,18 @@ totals <- plot.data %>%
         ) 
 
 
+#tabela de dados
+
+totals[,c(1,4,5,7,9,10)]  %>% 
+        kable(format = "html", caption = "Acumulado de cada aplicação") %>%
+        # kable_styling(bootstrap_options = c("hover", "responsive"))
+        kable_styling("hover", full_width = F)
+         
+        # row_spec(12, bold = T, italic = T)
 ```
+
+
+
 
 ```{r}
 
@@ -83,7 +95,8 @@ plot.data$fundo <- factor(
 
 
 # # plot - current status
-plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
+plot.data %>% filter(saldo.total>0) %>% 
+        ggplot(aes(fundo, saldo.total, fill=fundo)) +
         geom_bar(stat = "identity") + 
         geom_text(aes(
                 y=ifelse(saldo.total<5000, saldo.total+2000, saldo.total-3000),
@@ -107,7 +120,7 @@ plot.data %>% ggplot(aes(fundo, saldo.total, fill=fundo)) +
 
 
 
-compos <- plot.data %>% filter(rendimento>0) %>% select(c(1,7,8)) %>%
+compos <- plot.data %>% filter(rendimento>0 & saldo.total > 0) %>% select(c(1,7,8)) %>%
         # long format, for ggplot
         melt(id.vars = "fundo") %>%
         # text position
@@ -166,6 +179,7 @@ plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=(rendimento.mes<0))) +
 
 # Composição da carteira
 
+plot.data  %<>% filter(saldo.total > 0)
 
 cash <- plot.data$invest.liq
 cash.names <- sprintf("%s (%s)",
@@ -237,16 +251,4 @@ waffle(cash/200, size = 1) +
 ```
 
 
-
-```{r}
-
-#tabela de dados
-
-totals[,c(1,4,5,7,9,10)]  %>% 
-        kable(format = "html", caption = "Acumulado de cada aplicação") %>%
-        # kable_styling(bootstrap_options = c("hover", "responsive"))
-        kable_styling("hover", full_width = F)
-         
-        # row_spec(12, bold = T, italic = T)
-```
 

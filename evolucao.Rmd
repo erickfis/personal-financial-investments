@@ -139,20 +139,6 @@ ev.carteira.plot$show("inline", include_assets = TRUE, cdn = TRUE)
 
 
 
-# ggplot
-# plot1 <- ggplot(plot.df, 
-#                aes(Index, value, color=variable)
-#                    # text = paste(value, "<br>", Index)
-#                    # )
-#                ) +
-#         geom_line() + 
-#         ggtitle("Evolução da carteira (R$)") +
-#         labs(y="", x="") + 
-#         theme_economist() + scale_fill_economist()
-#         # theme(legend.position="bottom", legend.direction="horizontal",
-#         #            legend.title = element_blank()) 
-# 
-# # ggplotly(plot1, tooltip = c("Index", "value"), 800, 400)
 
 ```
 

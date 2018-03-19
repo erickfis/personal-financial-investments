@@ -2,21 +2,28 @@ library(knitr)
 library(rmarkdown)
 library(dplyr)
 library(scales)
-# library(lubridate)
-library(ggplot2)
-library(ggthemes)
-library(readxl)
-library(reshape2)
-library(plotly)
-library(kableExtra)
 library(xts)
-library(broom)
-library(waffle)
-library(ggrepel)
+
 library(magrittr)
 library(here)
-library(rCharts)
+
+library(readxl)
+library(reshape2)
+
+
+library(ggplot2)
+library(ggthemes)
 library(RColorBrewer)
+library(plotly)
+library(kableExtra)
+library(rCharts)
+
+library(waffle)
+#library(ggrepel)
+#library(broom)
+# library(lubridate)
+
+
 
 
 
@@ -25,8 +32,8 @@ library(RColorBrewer)
 #                   sheet = "inv")
 
 
-dados <- read_xls(here("data", "investimentos.xls"), sheet = "inv")
-
+dados <- read_xlsx(here("data", "investimentos.xlsx"))
+#dados <- read.csv(here("data", "investimentos.csv"), stringsAsFactors = FALSE)
 
 dados <- dados[,c(1:6)]
 
@@ -48,9 +55,13 @@ dados$nome[dados$nome=="michelle"] <- "brown"
 
 ##fixing NAs
 dados[is.na.data.frame(dados)] <- 0
-
-
-## removendo datas com entradas duplicadas
+# dados$saldoI2 <- as.numeric(dados$saldoI)
+# dados$investimento <- as.numeric(dados$investimento)
+# dados$saque <- as.numeric(dados$saque)
+# 
+# 
+# dados$data <- as.Date(dados$data, format = "%d/%m/%y")
+# ## removendo datas com entradas duplicadas
 
 df.filtrado <- group_by(dados, nome, fundo, data) %>%
         summarise(

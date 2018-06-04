@@ -48,7 +48,7 @@ totals <- plot.data %>%
 
 #tabela de dados
 
-totals[,c(1,4,5,7,9,10)]  %>% 
+totals[,c(1,4,5,7,9,10)]  %>% filter(saldo.total >0)  %>% 
         kable(format = "html", caption = "Acumulado de cada aplicação") %>%
         # kable_styling(bootstrap_options = c("hover", "responsive"))
         kable_styling("hover", full_width = F)
@@ -73,15 +73,19 @@ tema <- theme(legend.position="none",
               axis.text.y = element_blank(),
               panel.grid = element_blank(),
               panel.border = element_blank(),
+              legend.background = element_blank(),
+              axis.text.x = element_text(angle = 90, hjust = 1)
+                
+) 
+
               # panel.background = element_rect(colour = "#d5e4eb", 
               #                                 fill = "#d5e4eb"),
               # back
               # plot.background = element_rect(colour = "#d5e4eb", 
               #                                 fill = "#d5e4eb"),
               # panel.background = element_rect(colour = "white", fill = "white"),
-        legend.background = element_blank()
-                
-)
+
+#+ theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 
 
@@ -104,7 +108,7 @@ plot.data %>% filter(saldo.total>0) %>%
                 ) +        
         ggtitle("Saldo Atual de cada fundo (R$)") +
         theme_economist() + scale_fill_economist() +
-        tema        
+        tema
      
 
 
@@ -166,6 +170,7 @@ plot.data %>% ggplot(aes(fundo, rendimento.mes, fill=(rendimento.mes<0))) +
                 y=rendimento.mes*.85,
                 label=rendimento.mes), size=4, color="black"
                 ) +
+        
    
         theme_economist() + scale_fill_economist() +
         tema 

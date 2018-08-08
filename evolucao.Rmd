@@ -26,7 +26,10 @@ mov.mensal.df <- mov.mensal %>% fortify() %>% melt(id.vars="Index") %>%
                )  
 
 
-mov.mensal.df$media = mean(mov.mensal.df$value)
+semestre = mov.mensal.df$value[(nrow(mov.mensal.df)-6):nrow(mov.mensal.df)]
+
+mov.mensal.df$media = mean(semestre)
+
 
 # mov.mensal.plot <- nPlot(value ~ Index,
 #                      # data = mov.mensal.df, type = 'lineWithFocusChart')
@@ -66,12 +69,10 @@ mov.mensal.df$media = mean(mov.mensal.df$value)
 
 p <- plot_ly(mov.mensal.df, x = ~Index, y = ~value, name = 'Movimentação', 
              type = 'scatter', mode = 'markers') %>%
-        add_trace(y = ~media, name = 'Média', mode = 'line')
+        add_trace(y = ~media, name = 'Média 6m', mode = 'line')
 
 
 p
-
-
 ```
 
 

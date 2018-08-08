@@ -17,6 +17,7 @@ library(RColorBrewer)
 library(plotly)
 library(kableExtra)
 library(rCharts)
+library(plotly)
 
 library(waffle)
 #library(ggrepel)

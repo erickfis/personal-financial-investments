@@ -28,76 +28,63 @@ mov.mensal.df <- mov.mensal %>% fortify() %>% melt(id.vars="Index") %>%
 
 mov.mensal.df$media = mean(mov.mensal.df$value)
 
-# mov.mensal.plot <- nPlot(value ~ Index,
-#                      # data = mov.mensal.df, type = 'lineWithFocusChart')
-#                      data = mov.mensal.df, type = 'scatterChart')
-# 
-# # mov.mensal.df$Index = as.character(mov.mensal.df$Index)
-# 
-# 
-# # mov.mensal.plot <- rPlot(value ~ Index,
-# #                      # data = mov.mensal.df, type = 'lineWithFocusChart')
-# #                      data = mov.mensal.df, type = 'point')
-# 
-# mov.mensal.plot$layer(
-#         y = 'media', copy_layer = T, type = 'line',
-#         color = list(const = 'red'),
-#         tooltip = "function(item){return item._fitted}"
-#         )
-# 
-# 
-# 
-# # mov.mensal.plot$xAxis( tickFormat="#!function(d) {
-# #                     if (typeof d === 'string') {
-# #                         d = parseFloat(d);
-# #                     }
-# #                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
-# #                 }
-# #         !#" )
-# # mov.mensal.plot
-# mov.mensal.plot$show("inline", include_assets = TRUE, cdn = TRUE)
-# 
-# # mov.mensal.df %>% ggplot(aes(Index, mov.mensal))+
-# #         geom_point(stat = "identity") + 
-# #         geom_text(aes(label=mov.mensal, size=4)) +
-# #         ggtitle("Saldo Atual de cada fundo (R$)") +
-# #         theme_economist() + scale_fill_economist() +
-# #         tema 
+mov.mensal.plot <- nPlot(value ~ Index,
+                     # data = mov.mensal.df, type = 'lineWithFocusChart')
+                     data = mov.mensal.df, type = 'scatterChart')
 
-p <- plot_ly(mov.mensal.df, x = ~Index, y = ~value, name = 'Movimentação', 
-             type = 'scatter', mode = 'markers') %>%
-        add_trace(y = ~media, name = 'Média', mode = 'line')
+mov.mensal.plot <- rPlot(value ~ Index,
+                     # data = mov.mensal.df, type = 'lineWithFocusChart')
+                     data = mov.mensal.df, type = 'point')
 
+mov.mensal.plot$layer(
+        y = 'media', copy_layer = T, type = 'line',
+        color = list(const = 'red'),
+        tooltip = "function(item){return item._fitted}"
+        )
 
-p
+deltaPlot$xAxis( tickFormat="#!function(d) {return d3.time.format('%Y-%m-%d')(new Date(d * 24 * 60 * 60 * 1000));}!#" )
+
+mov.mensal.plot
+
+mov.mensal.plot$xAxis( tickFormat="#!function(d) {
+                    if (typeof d === 'string') {
+                        d = parseFloat(d);
+                    }
+                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+                }
+        !#" )
+
+mov.mensal.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+
+# mov.mensal.df %>% ggplot(aes(Index, mov.mensal))+
+#         geom_point(stat = "identity") + 
+#         geom_text(aes(label=mov.mensal, size=4)) +
+#         ggtitle("Saldo Atual de cada fundo (R$)") +
+#         theme_economist() + scale_fill_economist() +
+#         tema 
 
 
 ```
 
-
-
 ```{r}
-# dat = fortify(lm(mpg ~ wt, data = mtcars))
-# names(dat) = gsub('\\.', '_', names(dat))
-# 
-# p1 <- rPlot(mpg ~ wt, data = dat, type = 'point')
-# p1$layer(y = '_fitted', copy_layer = T, type = 'line',
-#   color = list(const = 'red'),
-#   tooltip = "function(item){return item._fitted}")
-# p1
+dat = fortify(lm(mpg ~ wt, data = mtcars))
+names(dat) = gsub('\\.', '_', names(dat))
+
+p1 <- rPlot(mpg ~ wt, data = dat, type = 'point')
+p1$layer(y = '_fitted', copy_layer = T, type = 'line',
+  color = list(const = 'red'),
+  tooltip = "function(item){return item._fitted}")
+p1
 ```
 
 ```{r}
-# data(economics, package = "ggplot2")
-# econ <- transform(economics, date = as.character(date))
-# m1 <- rPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)
-# m1$set(pointSize = 0, lineWidth = 1)
-# 
-# m1$layer(y = 200, copy_layer = T, type = 'line',
-#   color = list(const = 'red'),
-#   tooltip = "function(item){return item._fitted}")
-# 
-# m1
+data(economics, package = "ggplot2")
+econ <- transform(economics, date = as.character(date))
+m1 <- mPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)
+m1$set(pointSize = 0, lineWidth = 1)
+m1$print("chart2")
+
+m1
 ```
 
 

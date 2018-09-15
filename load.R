@@ -16,7 +16,7 @@ library(ggthemes)
 library(RColorBrewer)
 library(plotly)
 library(kableExtra)
-library(rCharts)
+# library(rCharts)
 library(plotly)
 
 library(waffle)
@@ -25,7 +25,14 @@ library(waffle)
 # library(lubridate)
 
 
-
+# lig ilimidatas
+# 14 Gb
+# 5 video
+# 9 livre
+# 
+# waze, deezer, whats 
+# 
+# 82,49 durante 1 ano
 
 
 

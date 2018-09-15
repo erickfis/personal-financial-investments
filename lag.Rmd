@@ -37,19 +37,29 @@ df.diff <- melt(df.wide, id.vars = "Index") %>%
 
 ```{r results="asis"}
 # nvd3 plot for evolution of each asset
-df.diff.plot <- nPlot(value ~ Index, group = 'variable', 
-                     data = df.diff, type = 'lineWithFocusChart')
+# df.diff.plot <- nPlot(value ~ Index, group = 'variable',
+#                      data = df.diff, type = 'lineWithFocusChart')
+# 
+# df.diff.plot$xAxis( tickFormat="#!function(d) {
+#                     if (typeof d === 'string') {
+#                         d = parseFloat(d);
+#                     }
+#                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+#                 }
+#         !#" )
+# 
+# df.diff.plot$show("inline", include_assets = TRUE, cdn = TRUE)
 
-df.diff.plot$xAxis( tickFormat="#!function(d) { 
-                    if (typeof d === 'string') {
-                        d = parseFloat(d);
-                    }
-                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
-                }
-        !#" )
-df.diff.plot$show("inline", include_assets = TRUE, cdn = TRUE)
-# df.diff.plot$print(include_assets=T)
+```
 
+```{r}
+plot <- df.diff %>% ggplot(aes(Index, value, color=variable)) +
+        geom_line() +
+        ggtitle("Análise de variação mensal (%)") +
+        labs(y="Variação %", x="") +
+        theme_economist() + scale_fill_economist()
+
+ggplotly(plot)
 ```
 
 

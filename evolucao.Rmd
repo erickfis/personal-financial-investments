@@ -1,13 +1,13 @@
 <br>
 
-## Evolução 
+## Evolução
 
 
 ### Movimentação mensal
 
 ```{r results='asis'}
 
-mov.mensal <- df[,c(2:7)] %>% group_by(data) %>% 
+mov.mensal <- df[,c(2:7)] %>% group_by(data) %>%
         summarise(entrada = sum(investimento), saida = sum(saque))
 
 mov.mensal <- xts(mov.mensal[,-1], order.by = mov.mensal$data) %>% na.locf()
@@ -20,7 +20,7 @@ mov.mensal <- apply.monthly(mov.mensal, sum)
 # names(mov.mensal.df) <- c("Index", "mov.mensal")
 
 
-mov.mensal.df <- mov.mensal %>% fortify() %>% melt(id.vars="Index") %>% 
+mov.mensal.df <- mov.mensal %>% fortify() %>% melt(id.vars="Index") %>%
         mutate(Index = as.Date(Index),
                value = round(value,3)
                )  
@@ -34,22 +34,22 @@ mov.mensal.df$media = mean(semestre)
 # mov.mensal.plot <- nPlot(value ~ Index,
 #                      # data = mov.mensal.df, type = 'lineWithFocusChart')
 #                      data = mov.mensal.df, type = 'scatterChart')
-# 
+#
 # # mov.mensal.df$Index = as.character(mov.mensal.df$Index)
-# 
-# 
+#
+#
 # # mov.mensal.plot <- rPlot(value ~ Index,
 # #                      # data = mov.mensal.df, type = 'lineWithFocusChart')
 # #                      data = mov.mensal.df, type = 'point')
-# 
+#
 # mov.mensal.plot$layer(
 #         y = 'media', copy_layer = T, type = 'line',
 #         color = list(const = 'red'),
 #         tooltip = "function(item){return item._fitted}"
 #         )
-# 
-# 
-# 
+#
+#
+#
 # # mov.mensal.plot$xAxis( tickFormat="#!function(d) {
 # #                     if (typeof d === 'string') {
 # #                         d = parseFloat(d);
@@ -59,15 +59,15 @@ mov.mensal.df$media = mean(semestre)
 # #         !#" )
 # # mov.mensal.plot
 # mov.mensal.plot$show("inline", include_assets = TRUE, cdn = TRUE)
-# 
+#
 # # mov.mensal.df %>% ggplot(aes(Index, mov.mensal))+
-# #         geom_point(stat = "identity") + 
+# #         geom_point(stat = "identity") +
 # #         geom_text(aes(label=mov.mensal, size=4)) +
 # #         ggtitle("Saldo Atual de cada fundo (R$)") +
 # #         theme_economist() + scale_fill_economist() +
-# #         tema 
+# #         tema
 
-p <- plot_ly(mov.mensal.df, x = ~Index, y = ~value, name = 'Movimentação', 
+p <- plot_ly(mov.mensal.df, x = ~Index, y = ~value, name = 'Movimentação',
              type = 'scatter', mode = 'markers') %>%
         add_trace(y = ~media, name = 'Média 6m', mode = 'line')
 
@@ -80,7 +80,7 @@ p
 ```{r}
 # dat = fortify(lm(mpg ~ wt, data = mtcars))
 # names(dat) = gsub('\\.', '_', names(dat))
-# 
+#
 # p1 <- rPlot(mpg ~ wt, data = dat, type = 'point')
 # p1$layer(y = '_fitted', copy_layer = T, type = 'line',
 #   color = list(const = 'red'),
@@ -93,11 +93,11 @@ p
 # econ <- transform(economics, date = as.character(date))
 # m1 <- rPlot(x = "date", y = c("psavert", "uempmed"), type = "Line", data = econ)
 # m1$set(pointSize = 0, lineWidth = 1)
-# 
+#
 # m1$layer(y = 200, copy_layer = T, type = 'line',
 #   color = list(const = 'red'),
 #   tooltip = "function(item){return item._fitted}")
-# 
+#
 # m1
 ```
 
@@ -110,19 +110,19 @@ p
 saldo.final <- df[,c(2,3,7)]
 
 # spread para ter as mesmas datas em todos os fundos
-saldo.final <- dcast(saldo.final, data ~ fundo) 
+saldo.final <- dcast(saldo.final, data ~ fundo)
 
 # transforma em xts para usar locf
 # preenche os NAs com o último valor
 saldo.final <- xts(saldo.final[,-1], order.by = saldo.final$data) %>% na.locf()
 
 # preenche NAs restantes com 0
-saldo.final[is.na.data.frame(saldo.final)] <- 0 
+saldo.final[is.na.data.frame(saldo.final)] <- 0
 
-# melt de volta, para então agrupar por data e ter 
+# melt de volta, para então agrupar por data e ter
 # um sumarize do saldo por dia
-saldo.final %<>% fortify() %>% melt(id.vars = "Index") %>% 
-        group_by(Index) %>% 
+saldo.final %<>% fortify() %>% melt(id.vars = "Index") %>%
+        group_by(Index) %>%
         summarize(valor = sum(value))
 
 saldo.final <- xts(saldo.final[,-1], order.by = saldo.final$Index)    
@@ -130,20 +130,20 @@ saldo.final <- xts(saldo.final[,-1], order.by = saldo.final$Index)
 
 
 cria.serie <- function(df) {
-        
+
         serie <- dcast(df, data ~ fundo)
 
         # preenche NAs restantes com 0
-        serie[is.na.data.frame(serie)] <- 0 
-        
+        serie[is.na.data.frame(serie)] <- 0
+
         serie[,-1] <- apply(serie[,-1], 2, function(x) cumsum(x))
-        
-        # melt de volta, para então agrupar por data e ter 
+
+        # melt de volta, para então agrupar por data e ter
         # um sumarize do saldo por dia
-        serie %<>% melt(id.vars = "data") %>% 
-                group_by(data) %>% 
+        serie %<>% melt(id.vars = "data") %>%
+                group_by(data) %>%
                 summarize(valor = sum(value))
-        
+
         serie <- xts(serie[,-1], order.by = serie$data)
         serie
 }
@@ -151,14 +151,13 @@ cria.serie <- function(df) {
 investimento <- cria.serie(df[,c(2,3,5)])
 saque <- cria.serie(df[,c(2,3,6)])
 
-# investimento <- saldo.final - (saldo.final + saque - investimento)
 investimento <- investimento - saque
 
 
 carteira <- merge.xts(saldo.final, investimento)
 names(carteira) <- c("Total", "Investimento")
 
-ev.carteira <- carteira["2017-06/"] %>% fortify() %>% melt(id.vars="Index") %>% 
+ev.carteira <- carteira["2017-06/"] %>% fortify() %>% melt(id.vars="Index") %>%
         mutate(Index = as.Date(Index),
                value = round(value,3)
                )  
@@ -172,22 +171,29 @@ ev.carteira <- carteira["2017-06/"] %>% fortify() %>% melt(id.vars="Index") %>%
 
 ```{r results="asis"}
 # nvd3 plot for account evolution
-ev.carteira.plot <- nPlot(value ~ Index, group = 'variable', 
-                     data = ev.carteira, type = 'lineWithFocusChart')
+# ev.carteira.plot <- nPlot(value ~ Index, group = 'variable',
+#                      data = ev.carteira, type = 'lineWithFocusChart')
+# 
+# 
+# 
+# ev.carteira.plot$xAxis( tickFormat="#!function(d) {
+#                     if (typeof d === 'string') {
+#                         d = parseFloat(d);
+#                     }
+#                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+#                 }
+#         !#" )
+# ev.carteira.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+# 
+# 
+# 
 
-ev.carteira.plot$xAxis( tickFormat="#!function(d) { 
-                    if (typeof d === 'string') {
-                        d = parseFloat(d);
-                    }
-                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
-                }
-        !#" )
-ev.carteira.plot$show("inline", include_assets = TRUE, cdn = TRUE)
+plot <- ev.carteira %>% ggplot(aes(x=Index, y=value, colour=variable)) +
+        geom_line() + 
+        labs(y="Valor", x="") +
+        theme_economist() + scale_fill_economist()
 
-# ev.carteira.plot$print(include_assets=T)
-
-
-
+ggplotly(plot)
 
 ```
 
@@ -208,12 +214,12 @@ evolucao <- mutate(df,
                 cresc.pond = as.numeric(abs(crescimento)^(1/meses)*
                         ifelse(crescimento<0,-1,1))
                 )
-                
+
 
 # preparando para xts
 # dcast para colocar cada fundo em um vetor
 
-data.wide <- dcast(evolucao[,c(2,3,11)], 
+data.wide <- dcast(evolucao[,c(2,3,11)],
                    data ~ fundo, value.var = "cresc.pond")
 
 
@@ -230,38 +236,45 @@ df.wide <- fortify(df.xts["2017-06/"])
 # df.wide <- fortify(df.xts)
 
 
-ev.investimentos <- melt(df.wide, id.vars = "Index") %>% 
+ev.investimentos <- melt(df.wide, id.vars = "Index") %>%
         mutate(Index = as.Date(Index),
                value = round(value,3)
-               ) 
+               )
 #creating colors for each var
 # colourCount <- length(unique(ev.investimentos$variable))
 # paleta <- colorRampPalette(brewer.pal(colourCount, "Set1"))
 # colors <- paleta(colourCount)
-# 
+#
 # ev.investimentos$colors <- colors[ev.investimentos$variable]
 
-      
-        
- 
+
+
+
 ```
 
 
 ```{r results="asis"}
 # nvd3 plot for evolution of each asset
-ev.investimentos.plot <- nPlot(value ~ Index, group = 'variable', 
-                     data = ev.investimentos, type = 'lineWithFocusChart')
+# ev.investimentos.plot <- nPlot(value ~ Index, group = 'variable',
+#                      data = ev.investimentos, type = 'lineWithFocusChart')
+#
+# ev.investimentos.plot$xAxis( tickFormat="#!function(d) {
+#                     if (typeof d === 'string') {
+#                         d = parseFloat(d);
+#                     }
+#                     return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
+#                 }
+#         !#" )
+# ev.investimentos.plot$show("inline", include_assets = TRUE, cdn = TRUE)
 
-ev.investimentos.plot$xAxis( tickFormat="#!function(d) { 
-                    if (typeof d === 'string') {
-                        d = parseFloat(d);
-                    }
-                    return d3.time.format('%d-%m-%y')(new Date(d*86400000));;
-                }
-        !#" )
-ev.investimentos.plot$show("inline", include_assets = TRUE, cdn = TRUE)
-# ev.investimentos.plot$print(include_assets=T)
 
+plot <- ev.investimentos %>% ggplot(aes(Index, value, color=variable)) +
+        geom_line() +
+        ggtitle("Evolução dos investimentos (%)") +
+        labs(y="Crestimento %", x="") +
+        theme_economist() + scale_fill_economist()
+
+ggplotly(plot)
 
 
 # plot.ev.mensal <-  ggplot(df.melt,
@@ -269,12 +282,12 @@ ev.investimentos.plot$show("inline", include_assets = TRUE, cdn = TRUE)
 #                    text = paste(round(value,2), "<br>", as.Date(Index))
 #                    )
 #                ) +
-#         geom_line() + 
+#         geom_line() +
 #         ggtitle("Evolução dos rendimentos (%)") +
-#         labs(y="Crestimento %", x="") + 
+#         labs(y="Crestimento %", x="") +
 #         theme_economist() + scale_fill_economist()
 #         # theme(legend.position="bottom", legend.direction="horizontal",
-#         #            legend.title = element_blank()) 
+#         #            legend.title = element_blank())
 
 # ggplotly(plot.ev.mensal, tooltip = "text", 800, 400)
 # plot.ev.mensal
@@ -282,4 +295,3 @@ ev.investimentos.plot$show("inline", include_assets = TRUE, cdn = TRUE)
 ```
 
 <br>
-

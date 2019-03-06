@@ -11,7 +11,7 @@ output:
     toc: true
     self_contained: no
 
-
+encoding: UTF-8
 ---
 
 ```{r setup, include=FALSE}

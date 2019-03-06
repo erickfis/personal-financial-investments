@@ -196,13 +196,13 @@ cash <- cash[order(cash,decreasing = TRUE)]
 
 
 # waffle plot
-waffle(cash/200, size = 1) + 
-        # theme_economist() + 
-        scale_fill_economist() +
-        tema +
-        theme(legend.position="bottom", legend.direction="horizontal",
-                   legend.title = element_blank()) +
-        ggtitle("Composição da carteira")
+# waffle(cash/200, size = 1) +
+#         # theme_economist() +
+#         scale_fill_economist() +
+#         tema +
+#         theme(legend.position="bottom", legend.direction="horizontal",
+#                    legend.title = element_blank()) +
+#         ggtitle("Composição da carteira")
 
 
 
